@@ -6,3 +6,7 @@
 UserSettings/
 .vscode/
 .idea/
+.vsconfig
+*.sln
+gameproj/
+

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 170323e03ce19d14581532852e3605a8
+guid: ea29c1f3e90c71e489905739b58bb16e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,18 +7,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: PumpkinHulk_Material
-    second: {fileID: 2100000, guid: 8c390d1da9cafa04dbee50a5a60d560f, type: 2}
+      name: parasitezombie_Material
+    second: {fileID: 2100000, guid: d6c78cc990abc67468c11355ef3c8268, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: parasitezombie_Material1
+    second: {fileID: 2100000, guid: c3b8253d0b9e66a49a154b746f00f56b, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: pumpkinHulk_diffuse
-    second: {fileID: 2800000, guid: 8493721f6ee8ce744a529ec8f25d39a3, type: 3}
+      name: parasiteZombie_body_diffuse
+    second: {fileID: 2800000, guid: de7db3fc7aa1fb34784183f8f729aaee, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: pumpkinHulk_normal
-    second: {fileID: 2800000, guid: a725b3656c04cd5479b2eab9a7245a29, type: 3}
+      name: parasiteZombie_diffuse
+    second: {fileID: 2800000, guid: f493da3c25e7a974a9a60310c4905ac9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: parasiteZombie_normal
+    second: {fileID: 2800000, guid: 2e05f4527e87fd0489982902955ef37e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: parasiteZombie_specular
+    second: {fileID: 2800000, guid: e1f1a9a0fc583c342be241ed53e4e5ef, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -37,7 +52,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -106,13 +121,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

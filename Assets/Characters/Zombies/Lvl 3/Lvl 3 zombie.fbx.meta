@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ea29c1f3e90c71e489905739b58bb16e
+guid: 9dfbc1cf48e71e048ad3099f2875cf49
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,33 +7,38 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: parasitezombie_Material
-    second: {fileID: 2100000, guid: d6c78cc990abc67468c11355ef3c8268, type: 2}
+      name: body_M
+    second: {fileID: 2100000, guid: b7ed5aaa6d4b2df408e9c33b7ee51062, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: parasitezombie_Material1
-    second: {fileID: 2100000, guid: c3b8253d0b9e66a49a154b746f00f56b, type: 2}
+      name: body_M1
+    second: {fileID: 2100000, guid: 1b976c595b20a5f4f8bf611f879899cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass_hair_M
+    second: {fileID: 2100000, guid: bca39b9b63ecfa64f9b0066a01b73d7e, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: parasiteZombie_body_diffuse
-    second: {fileID: 2800000, guid: de7db3fc7aa1fb34784183f8f729aaee, type: 3}
+      name: FuzZombie_body_diffuse
+    second: {fileID: 2800000, guid: 41bf85492afa0fc47948d775260ff2ff, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: parasiteZombie_diffuse
-    second: {fileID: 2800000, guid: f493da3c25e7a974a9a60310c4905ac9, type: 3}
+      name: FuzZombie_diffuse
+    second: {fileID: 2800000, guid: 29922eb7ea718394cb6877acf73280b0, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: parasiteZombie_normal
-    second: {fileID: 2800000, guid: 2e05f4527e87fd0489982902955ef37e, type: 3}
+      name: FuzZombie_normal
+    second: {fileID: 2800000, guid: e024a35896134fc44b70668b2c1f06ff, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: parasiteZombie_specular
-    second: {fileID: 2800000, guid: e1f1a9a0fc583c342be241ed53e4e5ef, type: 3}
+      name: FuzZombie_specular
+    second: {fileID: 2800000, guid: d0fdd91aed5408741b2b4e723baac949, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -52,7 +57,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -121,13 +126,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

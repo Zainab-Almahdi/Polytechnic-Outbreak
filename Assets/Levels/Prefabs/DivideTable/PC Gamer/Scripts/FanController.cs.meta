@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: c32b3eba91942914b9cd314f47fa2132
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294074
+  packageName: PC Gamer Set
+  packageVersion: 1.0
+  assetPath: Assets/PC Gamer/Scripts/FanController.cs
+  uploadId: 764677

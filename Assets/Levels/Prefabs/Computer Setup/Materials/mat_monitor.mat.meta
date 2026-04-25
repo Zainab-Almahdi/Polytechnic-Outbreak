@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a68b0fd1c36105c47bcfd35b707bde5b
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 294074
+  packageName: PC Gamer Set
+  packageVersion: 1.0
+  assetPath: Assets/PC Gamer/Materials/mat_monitor.mat
+  uploadId: 764677

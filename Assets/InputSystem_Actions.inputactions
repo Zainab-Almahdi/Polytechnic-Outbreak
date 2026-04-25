@@ -1032,6 +1032,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "CameraControlls",
+            "id": "69996a11-c16e-43a3-bcbd-6c0591ce96fe",
+            "actions": [
+                {
+                    "name": "Mouse Zoom",
+                    "type": "Value",
+                    "id": "f62d5dec-a9bb-4440-bcd3-5989b3a9a7f8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "96e7c791-1cbf-4555-9106-ed90a7ab59e1",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Mouse Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

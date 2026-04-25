@@ -6,13 +6,13 @@ public class CharacterControll : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Animator animator;
     [SerializeField] private PlayerInput playerInput;
-    // Rerence to mainCamera
-    private Transform mainCamera;
+    [SerializeField] private Transform cameraTransform;
+
     [Header("Player Movement")]
     [SerializeField] private float walkSpeed = 2f;
     [SerializeField] private float runSpeed = 5f;
-    [SerializeField] private float rotationSpeed = 10f;
-    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private float rotationSpeed = 12f;
+    [SerializeField] private float gravity = -20f;
 
     [Header("Animation")]
     [SerializeField] private string speedParameter = "Speed";
@@ -20,17 +20,19 @@ public class CharacterControll : MonoBehaviour
     [SerializeField] private float runAnimationValue = 1f;
     [SerializeField] private float animationSmoothTime = 0.1f;
 
+    // Player input action
     private InputAction moveAction;
     private InputAction runAction;
 
     private float verticalVelocity;
     private float currentAnimValue;
     private float animVelocity;
+    // Hash of animations  
     private int speedHash;
 
     private void Awake()
     {
-        // Assign Key Component (Character control,   Player input, Animator  )
+        // Assign Core Component
         if (controller == null)
             controller = GetComponent<CharacterController>();
 
@@ -39,9 +41,12 @@ public class CharacterControll : MonoBehaviour
 
         if (animator == null)
             animator = GetComponentInChildren<Animator>();
-        // Hash of Animation parameters 
+
+        if (cameraTransform == null && Camera.main != null)
+            cameraTransform = Camera.main.transform;
+
         speedHash = Animator.StringToHash(speedParameter);
-        // Set the player input
+
         moveAction = playerInput.actions["Move"];
         runAction = playerInput.actions["Run"];
     }
@@ -50,18 +55,29 @@ public class CharacterControll : MonoBehaviour
     {
         HandleMovement();
     }
-    // Handle movement logic 
+    // Handle movement Logic
     private void HandleMovement()
     {
         Vector2 input = moveAction.ReadValue<Vector2>();
-        // Checke if the player running 
-        bool isRunning = runAction.IsPressed();
+        bool isRunning = runAction != null && runAction.IsPressed();
 
-        Vector3 moveDirection = new Vector3(input.x, 0f, input.y);
-        bool isMoving = moveDirection.sqrMagnitude > 0.01f;
+        Vector3 inputDirection = new Vector3(input.x, 0f, input.y);
+        bool isMoving = inputDirection.sqrMagnitude > 0.01f;
+
+        Vector3 moveDirection = Vector3.zero;
 
         if (isMoving)
         {
+            Vector3 cameraForward = cameraTransform.forward;
+            Vector3 cameraRight = cameraTransform.right;
+
+            cameraForward.y = 0f;
+            cameraRight.y = 0f;
+
+            cameraForward.Normalize();
+            cameraRight.Normalize();
+
+            moveDirection = cameraForward * input.y + cameraRight * input.x;
             moveDirection.Normalize();
 
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
@@ -73,14 +89,8 @@ public class CharacterControll : MonoBehaviour
             );
         }
 
-        float currentSpeed = 0f;
-        float targetAnim = 0f;
-
-        if (isMoving)
-        {
-            currentSpeed = isRunning ? runSpeed : walkSpeed;
-            targetAnim = isRunning ? runAnimationValue : walkAnimationValue;
-        }
+        float currentSpeed = isMoving ? (isRunning ? runSpeed : walkSpeed) : 0f;
+        float targetAnim = isMoving ? (isRunning ? runAnimationValue : walkAnimationValue) : 0f;
 
         if (controller.isGrounded && verticalVelocity < 0f)
             verticalVelocity = -2f;

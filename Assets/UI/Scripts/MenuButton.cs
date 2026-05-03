@@ -38,6 +38,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (isHovered) return;
         isHovered = true;
         StopAllCoroutines();
         StartCoroutine(AnimateHover(true));

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Juggernog - BO3
+* source:	https://sketchfab.com/3d-models/juggernog-bo3-5dc2dd2bf60243a98adc63cb2a9a2349
+* author:	Steve.Lapp (https://sketchfab.com/Steve.Lapp)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Juggernog - BO3" (https://sketchfab.com/3d-models/juggernog-bo3-5dc2dd2bf60243a98adc63cb2a9a2349) by Steve.Lapp (https://sketchfab.com/Steve.Lapp) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

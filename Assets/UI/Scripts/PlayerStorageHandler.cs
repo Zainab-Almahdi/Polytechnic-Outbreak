@@ -56,7 +56,7 @@ namespace Assets.UI.Scripts
             PlayerPrefs.SetInt(MotionBlurKey, 0);
             PlayerPrefs.SetInt(FilmGrainKey, 0);
             PlayerPrefs.SetInt(ChromaticAberrationKey, 0);
-            PlayerPrefs.SetInt(BrightnessKey, 5);
+            PlayerPrefs.SetFloat(BrightnessKey, 0f);
 
             PlayerPrefs.SetInt(InitializedKey, 1);
             PlayerPrefs.Save();

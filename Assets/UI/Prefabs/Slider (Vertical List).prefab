@@ -630,7 +630,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5231772350019303264, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
       propertyPath: m_Name
-      value: Slider (Vertical List) Variant
+      value: Slider (Vertical List)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521083873207022880, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521083873207022880, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521083873207022880, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521083873207022880, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521083873207022880, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6679149829467782994, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
       propertyPath: m_Pivot.x
@@ -752,9 +772,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5835999364340563869, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+    - {fileID: 809022315710179625, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
     m_RemovedGameObjects:
     - {fileID: 1077923410681129522, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+    - {fileID: 4083653050607406835, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4238434393908034758, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
       insertIndex: -1
@@ -762,8 +785,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4238434393908034758, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6249689282497421956}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5231772350019303264, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1497170271771331138}
   m_SourcePrefab: {fileID: 100100000, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+--- !u!1 &1701717511393551758 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5231772350019303264, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}
+  m_PrefabInstance: {fileID: 6847523349031080686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1497170271771331138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701717511393551758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52bffbeff1e910441b9a8a27b803499e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 2548007034120472297}
+  valueText: {fileID: 5258436478885528195}
+  playerPrefsKey: 
+  saveDelay: 0.25
 --- !u!224 &7338258890642910760 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4238434393908034758, guid: e86bff7bc1adeaa409f0a54e06ddee14, type: 3}

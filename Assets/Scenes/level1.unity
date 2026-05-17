@@ -7808,6 +7808,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &1453377949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7841,6 +7842,9 @@ MonoBehaviour:
 =======
 --- !u!1 &1968952503
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
+=======
+--- !u!1 &1968952503
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7851,9 +7855,15 @@ GameObject:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 1587111265}
   m_Layer: 0
   m_Name: Model
+=======
+  - component: {fileID: 1968952504}
+  m_Layer: 0
+  m_Name: AudioManager
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
   - component: {fileID: 1968952504}
   m_Layer: 0
@@ -7877,7 +7887,11 @@ GameObject:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!4 &1587111265
+=======
+--- !u!4 &1968952504
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 --- !u!4 &1968952504
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -7895,6 +7909,7 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 1587111264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -7907,6 +7922,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1742139435
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -8698,6 +8715,9 @@ SceneRoots:
   - {fileID: 1968952504}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
+=======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82

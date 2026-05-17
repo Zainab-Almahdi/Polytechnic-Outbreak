@@ -3,10 +3,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "com.unity.burst": {
       "version": "1.8.23",
       "depth": 2,
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -35,6 +38,9 @@
       "depth": 1,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
+=======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -50,6 +56,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "com.unity.cinemachine": {
       "version": "3.1.6",
       "depth": 0,
@@ -58,6 +65,8 @@
         "com.unity.splines": "2.0.0",
         "com.unity.modules.imgui": "1.0.0"
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -74,6 +83,9 @@
         "com.unity.modules.unitywebrequest": "1.0.0"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
+=======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -94,7 +106,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "depth": 2,
+=======
+      "depth": 1,
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
       "depth": 1,
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -171,7 +187,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "depth": 2,
+=======
+      "depth": 1,
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
       "depth": 1,
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -198,7 +218,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "depth": 3,
+=======
+      "depth": 2,
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
       "depth": 2,
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -222,7 +246,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -239,6 +266,9 @@
     },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
+=======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -313,6 +343,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "com.unity.splines": {
       "version": "2.8.1",
       "depth": 1,
@@ -324,6 +355,8 @@
       },
       "url": "https://packages.unity.com"
     },
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -345,7 +378,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       "depth": 3,
+=======
+      "depth": 2,
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
       "depth": 2,
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82

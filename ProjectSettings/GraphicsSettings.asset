@@ -39,8 +39,11 @@ GraphicsSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_CustomRenderPipeline: {fileID: 11400000, guid: 668ee931cd400f043996f96c205351f5, type: 2}
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -70,10 +73,13 @@ GraphicsSettings:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     UnityEngine.Rendering.Universal.UniversalRenderPipeline: {fileID: 11400000, guid: 1de304e091ed59b4798fa064f0cd7dfb, type: 2}
   m_LightsUseLinearIntensity: 1
   m_LightsUseColorTemperature: 1
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======

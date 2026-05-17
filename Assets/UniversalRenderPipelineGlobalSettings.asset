@@ -36,6 +36,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       - rid: 3921883543995678981
       - rid: 3921883543995678982
       - rid: 3921883543995678983
@@ -65,6 +66,8 @@ MonoBehaviour:
       - rid: 3921883543995679007
       - rid: 3921883543995679008
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -99,6 +102,9 @@ MonoBehaviour:
       - rid: 2882115135358370047
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
+=======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -132,7 +138,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678981
+=======
+    - rid: 2882115135358370020
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370020
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -159,7 +169,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678982
+=======
+    - rid: 2882115135358370021
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370021
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -191,7 +205,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678983
+=======
+    - rid: 2882115135358370022
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370022
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -213,7 +231,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678984
+=======
+    - rid: 2882115135358370023
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370023
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -234,7 +256,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678985
+=======
+    - rid: 2882115135358370024
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370024
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -251,12 +277,15 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678986
       type: {class: UniversalRenderPipelineEditorAssets, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
         m_DefaultSettingsVolumeProfile: {fileID: 11400000, guid: eda47df5b85f4f249abf7abd73db2cb2, type: 2}
     - rid: 3921883543995678987
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -268,6 +297,9 @@ MonoBehaviour:
     - rid: 2882115135358370026
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
+=======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -287,7 +319,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678988
+=======
+    - rid: 2882115135358370027
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370027
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -306,6 +342,7 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678989
       type: {class: URPDefaultVolumeProfileSettings, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
@@ -313,6 +350,8 @@ MonoBehaviour:
         m_VolumeProfile: {fileID: 11400000, guid: 394d6090a6e708f40be6374560993ce8, type: 2}
     - rid: 3921883543995678990
 =======
+=======
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
@@ -325,6 +364,9 @@ MonoBehaviour:
     - rid: 2882115135358370029
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
+=======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -344,7 +386,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678991
+=======
+    - rid: 2882115135358370030
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370030
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -368,7 +414,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678992
+=======
+    - rid: 2882115135358370031
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370031
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -386,7 +436,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678993
+=======
+    - rid: 2882115135358370032
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370032
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -405,7 +459,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678994
+=======
+    - rid: 2882115135358370033
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370033
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -422,7 +480,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678995
+=======
+    - rid: 2882115135358370034
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370034
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -440,7 +502,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678996
+=======
+    - rid: 2882115135358370035
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370035
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -502,7 +568,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678997
+=======
+    - rid: 2882115135358370036
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370036
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -527,7 +597,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678998
+=======
+    - rid: 2882115135358370037
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370037
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -545,7 +619,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995678999
+=======
+    - rid: 2882115135358370038
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370038
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -564,7 +642,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679000
+=======
+    - rid: 2882115135358370039
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370039
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -583,7 +665,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679001
+=======
+    - rid: 2882115135358370040
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370040
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -608,7 +694,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679002
+=======
+    - rid: 2882115135358370041
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370041
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -626,7 +716,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679003
+=======
+    - rid: 2882115135358370042
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370042
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -648,7 +742,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679004
+=======
+    - rid: 2882115135358370043
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370043
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -665,7 +763,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679005
+=======
+    - rid: 2882115135358370044
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370044
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -682,7 +784,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679006
+=======
+    - rid: 2882115135358370045
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370045
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -701,7 +807,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679007
+=======
+    - rid: 2882115135358370046
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370046
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
@@ -740,7 +850,11 @@ MonoBehaviour:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     - rid: 3921883543995679008
+=======
+    - rid: 2882115135358370047
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
 =======
     - rid: 2882115135358370047
 >>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82

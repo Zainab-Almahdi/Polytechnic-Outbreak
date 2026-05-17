@@ -1,14 +1,27 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "com.unity.cinemachine": "3.1.6",
+=======
+    "com.atteneder.gltfast": "https://github.com/atteneder/glTFast.git",
+    "com.unity.2d.sprite": "1.0.0",
+    "com.unity.cloud.gltfast": "6.18.0",
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
     "com.unity.collab-proxy": "2.12.4",
     "com.unity.feature.development": "1.0.2",
     "com.unity.inputsystem": "1.14.2",
     "com.unity.multiplayer.center": "1.0.0",
+<<<<<<< HEAD
     "com.unity.render-pipelines.universal": "17.1.0",
     "com.unity.timeline": "1.8.7",
+=======
+    "com.unity.postprocessing": "3.5.4",
+    "com.unity.render-pipelines.universal": "17.1.0",
+    "com.unity.timeline": "1.8.12",
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
     "com.unity.ugui": "2.0.0",
-    "com.unity.visualscripting": "1.9.7",
+    "com.unity.vectorgraphics": "2.0.0-preview.25",
+    "com.unity.visualscripting": "1.9.11",
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",

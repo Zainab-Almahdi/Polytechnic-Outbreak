@@ -36,7 +36,11 @@ GraphicsSettings:
   m_PreloadedShaders: []
   m_PreloadShadersBatchTimeLimit: -1
   m_SpritesDefaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+<<<<<<< HEAD
   m_CustomRenderPipeline: {fileID: 11400000, guid: 668ee931cd400f043996f96c205351f5, type: 2}
+=======
+  m_CustomRenderPipeline: {fileID: 0}
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 0, z: 1}
   m_DefaultRenderingPath: 1
@@ -57,9 +61,15 @@ GraphicsSettings:
   m_FogKeepExp2: 1
   m_AlbedoSwatchInfos: []
   m_RenderPipelineGlobalSettingsMap:
+<<<<<<< HEAD
     UnityEngine.Rendering.Universal.UniversalRenderPipeline: {fileID: 11400000, guid: 1de304e091ed59b4798fa064f0cd7dfb, type: 2}
   m_LightsUseLinearIntensity: 1
   m_LightsUseColorTemperature: 1
+=======
+    UnityEngine.Rendering.Universal.UniversalRenderPipeline: {fileID: 11400000, guid: d526be653079b754db70138343346654, type: 2}
+  m_LightsUseLinearIntensity: 0
+  m_LightsUseColorTemperature: 0
+>>>>>>> 0ebb64c1c52dec0ae8109aa0e0b4ae8587c08b82
   m_LogWhenShaderIsCompiled: 0
   m_LightProbeOutsideHullStrategy: 0
   m_CameraRelativeLightCulling: 0

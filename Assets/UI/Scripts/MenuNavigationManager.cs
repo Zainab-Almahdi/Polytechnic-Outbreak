@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -11,10 +12,8 @@ using UnityEngine.InputSystem;
 using UnityEditor;
 #endif
 
-/// <summary>
-/// Handles main menu and settings UI navigation.
-/// Attach this script to any GameObject on the same Canvas as your menus.
-/// </summary>
+/// Handles main menu and some settings UI navigation.
+
 public class MenuNavigationManager : MonoBehaviour
 {
 
@@ -118,8 +117,9 @@ public class MenuNavigationManager : MonoBehaviour
 
     private void OnPlay()
     {
-        // Invoke the event so you can attach scene loading or other logic in the Inspector.
+        
         BeginFadeOut(() => onPlayClicked?.Invoke());
+        SceneManager.LoadScene("GameScene");
     }
 
 

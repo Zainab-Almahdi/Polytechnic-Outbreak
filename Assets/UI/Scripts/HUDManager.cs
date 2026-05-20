@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -5,6 +6,19 @@ namespace Assets.UI.Scripts
 {
     public class HUDManager : MonoBehaviour
     {
+        public static HUDManager Instance { get; private set; }
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+        }
+
         [Header("Floor")]
         [SerializeField] private TMP_Text floorLabelText;
 
@@ -22,11 +36,22 @@ namespace Assets.UI.Scripts
         [Header("Objective")]
         [SerializeField] private TMP_Text objectiveTextLabel;
 
+        [Header("Interact")]
+        [SerializeField] private TMP_Text interactTextLabel;
+
         //TODO: add interact prompt
 
         [Header("Perks")] [SerializeField] private GameObject PerksContainer;
 
-        // TODO: make a hashmap of the perks and their icons from UI/icons/Perks Icons
+
+        private void Start()
+        {
+            if (interactTextLabel!= null)//default to hidden
+            {
+                interactTextLabel.gameObject.SetActive(false);
+            }
+
+        }
 
         public void SetFloorLabel(string value)
         {
@@ -81,6 +106,21 @@ namespace Assets.UI.Scripts
             if (objectiveTextLabel != null)
             {
                 objectiveTextLabel.text = value;
+            }
+        }
+
+        public void SetInteractText(string value, bool visible)
+        {
+            if (interactTextLabel == null)
+            {
+                return;
+            }
+
+            interactTextLabel.gameObject.SetActive(visible);
+
+            if (visible)
+            {
+                interactTextLabel.text = value;
             }
         }
     }

@@ -1,15 +1,29 @@
+using System;
 using UnityEngine;
 
 public class PlayerPoints : MonoBehaviour
 {
-    public int currentPoints = 5000;  // Start with 5000 for testing
+#if UNITY_EDITOR
+    public int currentPoints = 10000;
+#else
+    public int currentPoints = 500;
+#endif
+    // Start with 10000 for testing change later to 500
     public int totalPointsEarned = 0;
+
+    public event Action<int> PointsChanged;
+
+    private void Start()
+    {
+        PointsChanged?.Invoke(currentPoints);
+    }
 
     public void AddPoints(int amount)
     {
         currentPoints += amount;
         totalPointsEarned += amount;
         Debug.Log("+" + amount + " points! Total: " + currentPoints);
+        PointsChanged?.Invoke(currentPoints);
     }
 
     public bool SpendPoints(int amount)
@@ -18,6 +32,7 @@ public class PlayerPoints : MonoBehaviour
         {
             currentPoints -= amount;
             Debug.Log("Spent " + amount + " points. Remaining: " + currentPoints);
+            PointsChanged?.Invoke(currentPoints);
             return true;
         }
         else

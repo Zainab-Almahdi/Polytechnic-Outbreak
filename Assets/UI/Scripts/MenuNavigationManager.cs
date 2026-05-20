@@ -28,6 +28,7 @@ public class MenuNavigationManager : MonoBehaviour
     [Tooltip("Main menu background image to fade when entering settings.")]
     public Image mainMenuBackground;
     public Button playButton;
+    public string PlaySceneName;
     public Button settingsButton;
     public Button exitButton;
 
@@ -119,7 +120,7 @@ public class MenuNavigationManager : MonoBehaviour
     {
         
         BeginFadeOut(() => onPlayClicked?.Invoke());
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(PlaySceneName);
     }
 
 

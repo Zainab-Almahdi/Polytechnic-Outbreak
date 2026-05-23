@@ -3,23 +3,19 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
-    // REFERENCES
     MouseLook mouseLook;
 
     public Camera playerCamera;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
 
-    // DAMAGE
     public float damage = 25f;
     public float headshotMultiplier = 2f;
     public float range = 100f;
 
-    // FIRE SETTINGS
-    public float fireRate = 0.1f;          // Time between shots
+    public float fireRate = 0.1f;
     private float nextTimeToFire = 0f;
 
-    // AMMO
     public int magazineSize = 30;
     public int reserveAmmo = 210;
     public float reloadTime = 2.5f;
@@ -27,14 +23,15 @@ public class Gun : MonoBehaviour
     private int currentAmmo;
     private bool isReloading = false;
 
-    // BURST FIRE
     public bool isBurstWeapon = false;
     public int burstCount = 3;
 
-    // SHOTGUN
     public bool isShotgun = false;
     public int pelletCount = 8;
     public float spreadAngle = 5f;
+
+    // 🔥 ADD THIS (IMPORTANT)
+    private WeaponSwitcher weaponSwitcher;
 
     void Start()
     {
@@ -44,11 +41,17 @@ public class Gun : MonoBehaviour
             playerCamera = Camera.main;
 
         mouseLook = playerCamera.GetComponentInParent<MouseLook>();
+
+        // 🔥 FIND WEAPON SWITCHER
+        weaponSwitcher = GetComponentInParent<WeaponSwitcher>();
     }
 
     void Update()
     {
-        if (isReloading)
+        if (isReloading) return;
+
+        // ❌ NO WEAPON = NO SHOOTING
+        if (weaponSwitcher == null || weaponSwitcher.GetCurrentWeapon() != gameObject)
             return;
 
         // RELOAD
@@ -111,15 +114,16 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
-        muzzleFlash.Play();
-        mouseLook.AddRecoil();
+        if (muzzleFlash != null)
+            muzzleFlash.Play();
+
+        if (mouseLook != null)
+            mouseLook.AddRecoil();
 
         if (isShotgun)
         {
             for (int i = 0; i < pelletCount; i++)
-            {
                 FireRay(GetShotgunDirection());
-            }
         }
         else
         {
@@ -145,13 +149,16 @@ public class Gun : MonoBehaviour
                 zombie.TakeDamage(finalDamage);
             }
 
-            GameObject impact = Instantiate(
-                impactEffect,
-                hit.point,
-                Quaternion.LookRotation(hit.normal)
-            );
+            if (impactEffect != null)
+            {
+                GameObject impact = Instantiate(
+                    impactEffect,
+                    hit.point,
+                    Quaternion.LookRotation(hit.normal)
+                );
 
-            Destroy(impact, 0.3f);
+                Destroy(impact, 0.3f);
+            }
         }
     }
 

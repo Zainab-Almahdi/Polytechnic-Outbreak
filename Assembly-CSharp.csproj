@@ -75,12 +75,14 @@
     <Compile Include="Assets\UI\Scripts\GamplayUIManager.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerController.cs" />
     <Compile Include="Assets\PerkMachine\Script\PlayerShooting.cs" />
+    <Compile Include="Assets\Characters\Player\Scripts\CrosshairController.cs" />
     <Compile Include="Assets\TextAnimations\TypewriterText.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\evelator_controll.cs" />
     <Compile Include="Assets\UI\Scripts\RebindUI.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Door.cs" />
     <Compile Include="Assets\UI\Scripts\PauseMenuManager.cs" />
     <Compile Include="Assets\TextAnimations\IntroSequence.cs" />
+    <Compile Include="Assets\Characters\Player\Scripts\WeaponPickup.cs" />
     <Compile Include="Assets\Shared\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\pass_on_parent.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\MouseLook.cs" />

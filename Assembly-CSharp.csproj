@@ -76,10 +76,13 @@
     <Compile Include="Assets\Characters\Player\Scripts\PlayerController.cs" />
     <Compile Include="Assets\PerkMachine\Script\PlayerShooting.cs" />
     <Compile Include="Assets\TextAnimations\TypewriterText.cs" />
+    <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\evelator_controll.cs" />
     <Compile Include="Assets\UI\Scripts\RebindUI.cs" />
+    <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Door.cs" />
     <Compile Include="Assets\UI\Scripts\PauseMenuManager.cs" />
     <Compile Include="Assets\TextAnimations\IntroSequence.cs" />
     <Compile Include="Assets\Shared\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\pass_on_parent.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\MouseLook.cs" />
     <Compile Include="Assets\UI\Scripts\LogoFlicker.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponSwitcher.cs" />
@@ -87,6 +90,7 @@
     <Compile Include="Assets\UI\Scripts\ScreenManager.cs" />
     <Compile Include="Assets\UI\Scripts\SliderUI.cs" />
     <Compile Include="Assets\UI\Scripts\DifficultyStepper.cs" />
+    <Compile Include="Assets\UI\Scripts\NavigateToScene.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\ZombieHealth.cs" />
     <Compile Include="Assets\UI\Scripts\ResolutionStepperUI.cs" />
     <Compile Include="Assets\PerkMachine\Script\PlayerMovement.cs" />
@@ -96,7 +100,9 @@
     <Compile Include="Assets\UI\Scripts\HUDManager.cs" />
     <Compile Include="Assets\PerkMachine\Script\PlayerPoints.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\Gun.cs" />
+    <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\DoorAction.cs" />
     <Compile Include="Assets\PerkMachine\Script\PerkMachine.cs" />
+    <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Fix_elevator_fall.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -124,6 +130,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\Enviroment\enviroment\Office building\Read me.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>

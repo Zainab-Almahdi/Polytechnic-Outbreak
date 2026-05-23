@@ -1,42 +1,111 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Gun : MonoBehaviour
 {
-    MouseLook mouseLook;  
+    // REFERENCES
+    MouseLook mouseLook;
 
     public Camera playerCamera;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
-    public float range = 100f;
+
+    // DAMAGE
     public float damage = 25f;
-    public float headshotMultiplier = 2f; 
+    public float headshotMultiplier = 2f;
+    public float range = 100f;
+
+    // FIRE SETTINGS
+    public float fireRate = 0.1f;          // Time between shots
+    private float nextTimeToFire = 0f;
+
+    // AMMO
+    public int magazineSize = 30;
+    public int reserveAmmo = 210;
+    public float reloadTime = 2.5f;
+
+    private int currentAmmo;
+    private bool isReloading = false;
+
+    // BURST FIRE
+    public bool isBurstWeapon = false;
+    public int burstCount = 3;
+
+    // SHOTGUN
+    public bool isShotgun = false;
+    public int pelletCount = 8;
+    public float spreadAngle = 5f;
 
     void Start()
     {
-        if (playerCamera == null)
-        {
-            playerCamera = Camera.main;
-        }
+        currentAmmo = magazineSize;
 
         if (playerCamera == null)
-        {
-            Debug.LogError("Player Camera still missing!");
-            return;
-        }
+            playerCamera = Camera.main;
 
         mouseLook = playerCamera.GetComponentInParent<MouseLook>();
-
-        if (mouseLook == null)
-        {
-            Debug.LogError("MouseLook not found on CameraHolder!");
-        }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (isReloading)
+            return;
+
+        // RELOAD
+        if (Input.GetKeyDown(KeyCode.R))
         {
+            StartCoroutine(Reload());
+            return;
+        }
+
+        // FIRE
+        if (Input.GetKey(KeyCode.Space) && Time.time >= nextTimeToFire)
+        {
+            if (currentAmmo <= 0)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+
+            nextTimeToFire = Time.time + fireRate;
+
+            if (isBurstWeapon)
+                StartCoroutine(BurstFire());
+            else
+                Shoot();
+
+            currentAmmo--;
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        if (reserveAmmo <= 0 || currentAmmo == magazineSize)
+            yield break;
+
+        isReloading = true;
+
+        yield return new WaitForSeconds(reloadTime);
+
+        int ammoNeeded = magazineSize - currentAmmo;
+        int ammoToLoad = Mathf.Min(ammoNeeded, reserveAmmo);
+
+        currentAmmo += ammoToLoad;
+        reserveAmmo -= ammoToLoad;
+
+        isReloading = false;
+    }
+
+    IEnumerator BurstFire()
+    {
+        for (int i = 0; i < burstCount; i++)
+        {
+            if (currentAmmo <= 0)
+                yield break;
+
             Shoot();
+            currentAmmo--;
+            yield return new WaitForSeconds(0.08f);
         }
     }
 
@@ -45,7 +114,22 @@ public class Gun : MonoBehaviour
         muzzleFlash.Play();
         mouseLook.AddRecoil();
 
-        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        if (isShotgun)
+        {
+            for (int i = 0; i < pelletCount; i++)
+            {
+                FireRay(GetShotgunDirection());
+            }
+        }
+        else
+        {
+            FireRay(playerCamera.transform.forward);
+        }
+    }
+
+    void FireRay(Vector3 direction)
+    {
+        Ray ray = new Ray(playerCamera.transform.position, direction);
 
         if (Physics.Raycast(ray, out RaycastHit hit, range))
         {
@@ -56,9 +140,7 @@ public class Gun : MonoBehaviour
                 float finalDamage = damage;
 
                 if (hit.collider.CompareTag("Head"))
-                {
                     finalDamage *= headshotMultiplier;
-                }
 
                 zombie.TakeDamage(finalDamage);
             }
@@ -71,5 +153,12 @@ public class Gun : MonoBehaviour
 
             Destroy(impact, 0.3f);
         }
+    }
+
+    Vector3 GetShotgunDirection()
+    {
+        Vector3 direction = playerCamera.transform.forward;
+        direction += Random.insideUnitSphere * Mathf.Tan(spreadAngle * Mathf.Deg2Rad);
+        return direction.normalized;
     }
 }

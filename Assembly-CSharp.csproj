@@ -69,6 +69,7 @@
     <Compile Include="Assets\PerkMachine\Script\FaceCamera.cs" />
     <Compile Include="Assets\UI\Scripts\SettingsMenuManager.cs" />
     <Compile Include="Assets\UI\Scripts\ToggleImageSwap.cs" />
+    <Compile Include="Assets\Characters\Player\Scripts\ItemData.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\UI\Scripts\MenuNavigationManager.cs" />
     <Compile Include="Assets\UI\Scripts\MenuButton.cs" />
@@ -83,10 +84,12 @@
     <Compile Include="Assets\UI\Scripts\PauseMenuManager.cs" />
     <Compile Include="Assets\TextAnimations\IntroSequence.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponPickup.cs" />
+    <Compile Include="Assets\Characters\Player\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Shared\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\pass_on_parent.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\MouseLook.cs" />
     <Compile Include="Assets\UI\Scripts\LogoFlicker.cs" />
+    <Compile Include="Assets\Characters\Player\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponSwitcher.cs" />
     <Compile Include="Assets\PerkMachine\Script\WeaponSwitcher.cs" />
     <Compile Include="Assets\UI\Scripts\ScreenManager.cs" />

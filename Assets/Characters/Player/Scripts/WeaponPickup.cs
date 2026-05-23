@@ -2,22 +2,17 @@ using UnityEngine;
 
 public class WeaponPickup : MonoBehaviour
 {
-    public GameObject weaponPrefab;
+    public ItemData item;
 
-    private bool playerInRange = false;
-    private WeaponSwitcher ws;
+    private PlayerInventory inventory;
+    private bool inRange;
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (inRange && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("E PRESSED - PICKUP");
-
-            if (ws != null)
-            {
-                ws.AddWeapon(weaponPrefab);
-                Destroy(gameObject);
-            }
+            inventory.AddItem(item);
+            Destroy(gameObject);
         }
     }
 
@@ -25,13 +20,8 @@ public class WeaponPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("PLAYER ENTERED RANGE");
-
-            playerInRange = true;
-            ws = other.GetComponent<WeaponSwitcher>();
-
-            if (ws == null)
-                Debug.LogError("WeaponSwitcher NOT FOUND ON PLAYER");
+            inventory = other.GetComponent<PlayerInventory>();
+            inRange = true;
         }
     }
 
@@ -39,10 +29,8 @@ public class WeaponPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("PLAYER LEFT RANGE");
-
-            playerInRange = false;
-            ws = null;
+            inventory = null;
+            inRange = false;
         }
     }
 }

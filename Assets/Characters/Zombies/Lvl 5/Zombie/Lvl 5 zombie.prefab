@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1781356600409242780, guid: ea29c1f3e90c71e489905739b58bb16e, type: 3}
+      propertyPath: m_TagString
+      value: Head
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ea29c1f3e90c71e489905739b58bb16e, type: 3}
       propertyPath: m_Name
       value: Lvl 5 zombie

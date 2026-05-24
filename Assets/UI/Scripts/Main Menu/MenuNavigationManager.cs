@@ -29,14 +29,22 @@ public class MenuNavigationManager : MonoBehaviour
     public Image mainMenuBackground;
     public Button playButton;
     public string PlaySceneName;
+    public string CreditsSceneName;
     public Button settingsButton;
     public Button exitButton;
+    public Button instructionsButton;
+    public Button creditsButton;
 
     [Header("Exit Confirmation")]
     [Tooltip("Popup panel shown when confirming exit from the main menu.")]
     public GameObject exitConfirmationPanel;
     public Button exitConfirmButton;
     public Button exitCancelButton;
+
+    [Header("Instructions popup")]
+    [Tooltip("Popup panel shown when displaying instructions.")]
+    public GameObject instructionsPanel;
+    public Button instructionsCloseButton;
 
     [Header("Settings Menu")]
     [SerializeField] private SettingsMenuManager settingsMenuManager;
@@ -66,11 +74,17 @@ public class MenuNavigationManager : MonoBehaviour
             settingsButton.onClick.AddListener(ShowSettings);
         if (exitButton != null)
             exitButton.onClick.AddListener(ShowExitConfirmation);
+        if (instructionsButton != null)
+            instructionsButton.onClick.AddListener(ShowInstructions);
+        if (creditsButton != null)
+            creditsButton.onClick.AddListener(OnCredits);
 
         if (exitConfirmButton != null)
             exitConfirmButton.onClick.AddListener(ConfirmExit);
         if (exitCancelButton != null)
             exitCancelButton.onClick.AddListener(HideExitConfirmation);
+        if (instructionsCloseButton != null)
+            instructionsCloseButton.onClick.AddListener(HideInstructions);
 
         // ----- Initial UI State 
         // Main menu visible, settings hidden
@@ -81,6 +95,8 @@ public class MenuNavigationManager : MonoBehaviour
 
         if (exitConfirmationPanel != null)
             exitConfirmationPanel.SetActive(false);
+        if (instructionsPanel != null)
+            instructionsPanel.SetActive(false);
 
         // Ensure only one setting sub-panel is active initially (useful when editing in the Inspector)
         if (settingsMenuManager != null)
@@ -123,6 +139,12 @@ public class MenuNavigationManager : MonoBehaviour
         SceneManager.LoadScene(PlaySceneName);
     }
 
+    private void OnCredits()
+    {
+        BeginFadeOut(() => onPlayClicked?.Invoke());
+        SceneManager.LoadScene(CreditsSceneName);
+    }
+
 
     /// Called when Exit button is clicked.
 
@@ -141,6 +163,18 @@ public class MenuNavigationManager : MonoBehaviour
     {
         if (exitConfirmationPanel != null)
             exitConfirmationPanel.SetActive(false);
+    }
+
+    private void ShowInstructions()
+    {
+        if (instructionsPanel != null)
+            instructionsPanel.SetActive(true);
+    }
+
+    private void HideInstructions()
+    {
+        if (instructionsPanel != null)
+            instructionsPanel.SetActive(false);
     }
 
     private void ConfirmExit()

@@ -6,6 +6,9 @@ public class PlayerWeapons : MonoBehaviour
 {
     [SerializeField] private int baseMaxWeapons = 2;
     [SerializeField] private int equippedWeaponIndex;
+    [SerializeField] private WeaponData defaultWeapon;
+    [SerializeField] private GameObject defaultWeaponPrefab;
+    [SerializeField] private Transform weaponMount;
 
     private PlayerPerks perks;
     private readonly List<WeaponInstance> ownedWeapons = new();
@@ -21,17 +24,58 @@ public class PlayerWeapons : MonoBehaviour
         perks = GetComponent<PlayerPerks>();
     }
 
+    private void Start()
+    {
+        if (defaultWeaponPrefab != null && ownedWeapons.Count == 0)
+        {
+            TryAddWeapon(defaultWeaponPrefab);
+        }
+        else if (defaultWeapon != null && ownedWeapons.Count == 0)
+        {
+            TryAddWeapon(defaultWeapon);
+        }
+    }
+
     public bool TryAddWeapon(WeaponData weaponData)
     {
-        if (weaponData == null || ownedWeapons.Count >= MaxWeaponsOwned)
+        if (weaponData == null)
         {
             return false;
         }
 
-        ownedWeapons.Add(new WeaponInstance(weaponData));
+        return TryAddWeaponInternal(new WeaponInstance(weaponData));
+    }
+
+    public bool TryAddWeapon(GameObject weaponPrefab)
+    {
+        if (weaponPrefab == null)
+        {
+            return false;
+        }
+
+        var gun = weaponPrefab.GetComponent<Gun>();
+        if (gun == null)
+        {
+            Debug.LogWarning("PlayerWeapons: weapon prefab is missing a Gun component.");
+            return false;
+        }
+
+        return TryAddWeaponInternal(new WeaponInstance(gun, weaponPrefab));
+    }
+
+    private bool TryAddWeaponInternal(WeaponInstance weaponInstance)
+    {
+        if (weaponInstance == null || ownedWeapons.Count >= MaxWeaponsOwned)
+        {
+            return false;
+        }
+
+        ownedWeapons.Add(weaponInstance);
+        EnsureSpawned(weaponInstance);
         if (ownedWeapons.Count == 1)
         {
-            equippedWeaponIndex = 0;
+            SetEquippedWeapon(0);
+            return true;
         }
 
         NotifyAmmoChanged();
@@ -74,8 +118,7 @@ public class PlayerWeapons : MonoBehaviour
             return false;
         }
 
-        equippedWeaponIndex = index;
-        NotifyAmmoChanged();
+        SetEquippedWeapon(index);
         return true;
     }
 
@@ -86,8 +129,7 @@ public class PlayerWeapons : MonoBehaviour
             return;
         }
 
-        equippedWeaponIndex = (equippedWeaponIndex + 1) % ownedWeapons.Count;
-        NotifyAmmoChanged();
+        SetEquippedWeapon((equippedWeaponIndex + 1) % ownedWeapons.Count);
     }
 
     public void EquipPreviousWeapon()
@@ -97,8 +139,7 @@ public class PlayerWeapons : MonoBehaviour
             return;
         }
 
-        equippedWeaponIndex = (equippedWeaponIndex - 1 + ownedWeapons.Count) % ownedWeapons.Count;
-        NotifyAmmoChanged();
+        SetEquippedWeapon((equippedWeaponIndex - 1 + ownedWeapons.Count) % ownedWeapons.Count);
     }
 
     public float GetReloadSpeedMultiplier()
@@ -109,13 +150,13 @@ public class PlayerWeapons : MonoBehaviour
     public bool RefillEquippedWeaponAmmo()
     {
         var weapon = GetEquippedWeapon();
-        if (weapon == null || weapon.Data == null)
+        if (weapon == null)
         {
             return false;
         }
 
-        weapon.CurrentMagazineAmmo = weapon.Data.MagazineSize;
-        weapon.CurrentReserveAmmo = weapon.Data.ReserveAmmo;
+        weapon.CurrentMagazineAmmo = weapon.MagazineSize;
+        weapon.CurrentReserveAmmo = weapon.ReserveAmmo;
         NotifyAmmoChanged();
         return true;
     }
@@ -130,5 +171,45 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         AmmoChanged?.Invoke(weapon.CurrentMagazineAmmo, weapon.CurrentReserveAmmo);
+    }
+
+    private void SetEquippedWeapon(int index)
+    {
+        if (index < 0 || index >= ownedWeapons.Count)
+        {
+            return;
+        }
+
+        for (var i = 0; i < ownedWeapons.Count; i++)
+        {
+            var instance = ownedWeapons[i];
+            if (instance == null)
+            {
+                continue;
+            }
+
+            EnsureSpawned(instance);
+            if (instance.SpawnedObject != null)
+            {
+                instance.SpawnedObject.SetActive(i == index);
+            }
+        }
+
+        equippedWeaponIndex = index;
+        NotifyAmmoChanged();
+    }
+
+    private void EnsureSpawned(WeaponInstance weaponInstance)
+    {
+        if (weaponInstance == null || weaponInstance.SpawnedObject != null || weaponInstance.Prefab == null)
+        {
+            return;
+        }
+
+        var parent = weaponMount != null ? weaponMount : transform;
+        weaponInstance.SpawnedObject = Instantiate(weaponInstance.Prefab, parent);
+        weaponInstance.SpawnedObject.transform.localPosition = Vector3.zero;
+        weaponInstance.SpawnedObject.transform.localRotation = Quaternion.identity;
+        weaponInstance.SpawnedObject.SetActive(false);
     }
 }

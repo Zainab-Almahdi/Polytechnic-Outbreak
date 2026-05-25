@@ -40,7 +40,11 @@ public class Gun : MonoBehaviour
         if (playerCamera == null)
             playerCamera = Camera.main;
 
-        mouseLook = playerCamera.GetComponentInParent<MouseLook>();
+        if (playerCamera == null)
+            playerCamera = GetComponentInParent<Camera>();
+
+        if (playerCamera != null)
+            mouseLook = playerCamera.GetComponentInParent<MouseLook>();
 
         // 🔥 FIND WEAPON SWITCHER
         weaponSwitcher = GetComponentInParent<WeaponSwitcher>();

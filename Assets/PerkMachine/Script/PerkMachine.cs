@@ -1,103 +1,84 @@
-using UnityEngine;
+//using UnityEngine;
 
 public class PerkMachine : MonoBehaviour
 {
-    public int perkCost = 2500;
-    public string perkName = "Juggernog";
-    public GameObject promptText;
-    public AudioSource buySound;
-    private bool playerNearby = false;
-    private GameObject player;
-    private PlayerPoints playerPoints;
-    private bool hasBeenPurchased = false;
+    [SerializeField] public int perkCost = 2500;
+    [SerializeField] private PerkType perkType = PerkType.HealthIncrease;
+    [SerializeField] public GameObject promptText;
+    [SerializeField] public AudioSource buySound;
+    [SerializeField] private bool playerNearby = false;
+    [SerializeField] private GameObject player;
+    [SerializeField] private PlayerPoints playerPoints;
+    [SerializeField] private bool hasBeenPurchased = false;
 
-    private float startDelay = 1f;
+//    private float startDelay = 1f;
 
-    void Update()
-    {
-        if (playerNearby && Input.GetKeyDown(KeyCode.E))
-        {
-            if (player != null && Vector3.Distance(transform.position, player.transform.position) < 3f)
-            {
-                BuyPerk();
-            }
-            else
-            {
-                playerNearby = false;
-                if (promptText != null) promptText.SetActive(false);
-            }
-        }
-    }
+//    void Update()
+//    {
+//        if (playerNearby && Input.GetKeyDown(KeyCode.E))
+//        {
+//            if (player != null && Vector3.Distance(transform.position, player.transform.position) < 3f)
+//            {
+//                BuyPerk();
+//            }
+//            else
+//            {
+//                playerNearby = false;
+//                if (promptText != null) promptText.SetActive(false);
+//            }
+//        }
+//    }
 
     void BuyPerk()
     {
         if (hasBeenPurchased)
         {
-            Debug.Log("Already bought " + perkName + "!");
+            Debug.Log("Already bought " + perkType + "!");
             return;
         }
 
         if (playerPoints == null || !playerPoints.SpendPoints(perkCost))
         {
-            Debug.Log("Need " + perkCost + " points to buy " + perkName);
+            Debug.Log("Need " + perkCost + " points to buy " + perkType);
             return;
         }
 
-        hasBeenPurchased = true;
+//        hasBeenPurchased = true;
 
-        Debug.Log("Bought " + perkName + " perk!");
+        Debug.Log("Bought " + perkType + " perk!");
 
-        if (buySound != null)
-        {
-            buySound.Play();
-        }
+//        if (buySound != null)
+//        {
+//            buySound.Play();
+//        }
 
-        // Apply perk effects
-        if (perkName == "Juggernog")
+        // Apply perk effects via the perk system for modular modifiers.
+        var perkSystem = player.GetComponent<PlayerPerks>();
+        if (perkSystem != null)
         {
-            player.GetComponent<PlayerHealth>().maxHealth = 200;
-            player.GetComponent<PlayerHealth>().currentHealth = 200;
-            Debug.Log("Juggernog: Health increased to 200");
-        }
-        else if (perkName == "QuickRevive")
-        {
-            player.GetComponent<PlayerHealth>().hasQuickRevive = true;
-            Debug.Log("Quick Revive: Self-revive unlocked");
-        }
-        else if (perkName == "SpeedCola")
-        {
-            player.GetComponent<PlayerShooting>().reloadSpeed = 0.5f;
-            Debug.Log("Speed Cola: Reload speed doubled");
-        }
-        else if (perkName == "DoubleTap")
-        {
-            player.GetComponent<PlayerShooting>().fireRate = 0.1f;
-            Debug.Log("Double Tap: Fire rate increased");
-        }
-        else if (perkName == "StaminUp")
-        {
-            player.GetComponent<PlayerMovement>().speed = 10f;
-            Debug.Log("Stamin-Up: Movement speed increased");
-        }
-        else if (perkName == "MuleKick")
-        {
-            player.GetComponent<WeaponSwitcher>().maxWeapons = 3;
-            Debug.Log("Mule Kick: Third weapon slot unlocked");
-        }
-
-        // Hide prompt
-        if (promptText != null) promptText.SetActive(false);
-      
-        Collider[] colliders = GetComponents<Collider>();
-        foreach (Collider col in colliders)
-        {
-            if (col.isTrigger)
+            if (perkSystem.TryAddPerk(perkType))
             {
-                col.enabled = false;
-                break;
+                Debug.Log($"{perkType}: Perk added.");
+            }
+            else
+            {
+                Debug.Log($"{perkType}: Perk already owned or perk limit reached.");
             }
         }
-    }
+
+//        // Hide prompt
+//        if (promptText != null) promptText.SetActive(false);
+      
+//        Collider[] colliders = GetComponents<Collider>();
+//        foreach (Collider col in colliders)
+//        {
+//            if (col.isTrigger)
+//            {
+//                col.enabled = false;
+//                break;
+//            }
+//        }
+//    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -106,7 +87,7 @@ public class PerkMachine : MonoBehaviour
             playerNearby = true;
             player = other.gameObject;
             if (promptText != null) promptText.SetActive(true);
-            Debug.Log("Press E to buy " + perkName + " (" + perkCost + " points)");
+            Debug.Log("Press E to buy " + perkType + " (" + perkCost + " points)");
             playerPoints = player.GetComponent<PlayerPoints>();
         }
     }
@@ -119,4 +100,5 @@ public class PerkMachine : MonoBehaviour
             if (promptText != null) promptText.SetActive(false);
         }
     }
+
 }

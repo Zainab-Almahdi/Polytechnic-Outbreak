@@ -74,6 +74,7 @@ public class MysteryBox : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNear = false;
+
         }
     }
 
@@ -132,6 +133,7 @@ public class MysteryBox : MonoBehaviour
         animator.Play("Shrinking"); // Play shrinking animation
         yield return new WaitForSeconds(1f);
         MoveBox(); // Move the box to a new location
+        disapperEffect.gameObject.SetActive(false); // Hide disappear effect
     }
 
     private void GiveRandomWeapon()

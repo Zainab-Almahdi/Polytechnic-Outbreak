@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerInventory2.cs" />
     <Compile Include="Assets\PointsSystem\BuyableObject.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\DoorAction.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerCameraLook.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\DifficultyStepper.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\ToggleImageSwap.cs" />
     <Compile Include="Assets\PerkMachine\Script\PerkMachine.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerPerks.cs" />
     <Compile Include="Assets\Shared\Scripts\ZombieSpawner.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Fix_elevator_fall.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInputHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

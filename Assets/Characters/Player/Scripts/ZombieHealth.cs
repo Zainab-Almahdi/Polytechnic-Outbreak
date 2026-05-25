@@ -7,9 +7,12 @@ public class ZombieHealth : MonoBehaviour
 
     public Animator animator;
 
+    private ZombieDropper zombieDropper;
+
     void Start()
     {
         currentHealth = maxHealth;
+        zombieDropper = GetComponent<ZombieDropper>();
     }
 
     public void TakeDamage(float amount)
@@ -25,6 +28,12 @@ public class ZombieHealth : MonoBehaviour
     void IsDead()
     {
         animator.SetTrigger("IsDead");
+
+        if (zombieDropper != null)
+        {
+        zombieDropper.OnZombieDeath();
+        }
+
         Destroy(gameObject, 3f);
     }
 }

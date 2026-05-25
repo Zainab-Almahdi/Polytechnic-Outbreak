@@ -1,4 +1,4 @@
-//using UnityEngine;
+using UnityEngine;
 
 public class PerkMachine : MonoBehaviour
 {
@@ -78,7 +78,7 @@ public class PerkMachine : MonoBehaviour
 //                break;
 //            }
 //        }
-//    }
+ }
 
     void OnTriggerEnter(Collider other)
     {
@@ -102,3 +102,4 @@ public class PerkMachine : MonoBehaviour
     }
 
 }
+

@@ -102,6 +102,7 @@
     <Compile Include="Assets\MysteryBox\Script\MysteryBox.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\EntranceAnimation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPoints.cs" />
+    <Compile Include="Assets\Scripts\AI\ZombieAI.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPowerups.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\RebindUI.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\ZombieHealth.cs" />
@@ -641,6 +642,10 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@8bed5ad90189\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
@@ -1153,6 +1158,14 @@
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Assistant.Integrations.Profiler.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Assistant.Integrations.Profiler.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HFDownloader">
+      <HintPath>Library\ScriptAssemblies\HFDownloader.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="glTFast.Editor">
       <HintPath>Library\ScriptAssemblies\glTFast.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1169,16 +1182,8 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Timeline">
@@ -1187,6 +1192,10 @@
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.Shared.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
@@ -1229,20 +1238,44 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Tracing">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Tracing.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VectorGraphics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VectorGraphics.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Assistant.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Assistant.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Collections">
       <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PPv2URPConverters">
       <HintPath>Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Assistant.Annotations.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Assistant.Annotations.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Rendering.LightTransport.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rendering.LightTransport.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.MCP.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.MCP.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Assistant.Bridge.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Assistant.Bridge.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
@@ -1257,8 +1290,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Assistant.API.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Assistant.API.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualEffectGraph.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Assistant.Tools.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Assistant.Tools.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualEffectGraph.Editor">
@@ -1299,6 +1340,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Assistant.Agent.Dynamic.Extension.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Assistant.Agent.Dynamic.Extension.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Postprocessing.Editor">
@@ -1351,6 +1396,10 @@
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.MCP.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.MCP.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">

@@ -12,7 +12,7 @@ public class ZombieSpawner : MonoBehaviour
     [Header("Max zombies alive from this spawner")]
     public int maxZombies = 3;
 
-    private int _aliveCount = 0;
+    private static int _aliveCount = 0;
     private Coroutine _spawnRoutine;
 
     public void Activate()

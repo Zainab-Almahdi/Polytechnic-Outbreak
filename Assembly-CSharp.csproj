@@ -68,6 +68,7 @@
     <Compile Include="Assets\UI\Scripts\Settings\SliderUI.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponSway.cs" />
     <Compile Include="Assets\Storytelling\EmergencyLight\FlickerLight.cs" />
+    <Compile Include="Assets\UI\Scripts\CreditsManager.cs" />
     <Compile Include="Assets\UI\Scripts\HUD\PerkHUD.cs" />
     <Compile Include="Assets\PerkMachine\Script\FaceCamera.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\ItemData.cs" />

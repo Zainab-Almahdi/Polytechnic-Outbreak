@@ -37,6 +37,11 @@ public class Player : MonoBehaviour
         if (Weapons != null)
         {
             Weapons.AmmoChanged += OnAmmoChanged;
+            var weapon = Weapons.GetEquippedWeapon();
+            if (weapon != null)
+            {
+                OnAmmoChanged(weapon.CurrentMagazineAmmo, weapon.CurrentReserveAmmo);
+            }
         }
 
         if (Points != null)

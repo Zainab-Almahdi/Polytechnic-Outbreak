@@ -39,7 +39,6 @@ namespace Assets.UI.Scripts
         [Header("Interact")]
         [SerializeField] private TMP_Text interactTextLabel;
 
-        //TODO: add interact prompt
 
         [Header("Perks")] [SerializeField] private GameObject PerksContainer;
 

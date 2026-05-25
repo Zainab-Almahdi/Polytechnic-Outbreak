@@ -161,6 +161,11 @@ public class PlayerWeapons : MonoBehaviour
         return true;
     }
 
+    public void InvokeAmmoChanged(int currentMag, int reserve)
+    {
+        AmmoChanged?.Invoke(currentMag, reserve);
+    }
+
     private void NotifyAmmoChanged()
     {
         var weapon = GetEquippedWeapon();
@@ -211,5 +216,11 @@ public class PlayerWeapons : MonoBehaviour
         weaponInstance.SpawnedObject.transform.localPosition = Vector3.zero;
         weaponInstance.SpawnedObject.transform.localRotation = Quaternion.identity;
         weaponInstance.SpawnedObject.SetActive(false);
+
+        var gun = weaponInstance.SpawnedObject.GetComponent<Gun>();
+        if (gun != null)
+        {
+            gun.Initialize(weaponInstance, this);
+        }
     }
 }

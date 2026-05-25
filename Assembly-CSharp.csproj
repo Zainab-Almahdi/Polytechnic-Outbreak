@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{624F56D8-8735-6355-3F76-858A8BAD9DEA}</ProjectGuid>
+    <ProjectGuid>{67D064CB-C40E-0A57-B8E1-008104126975}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,52 +61,70 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.13f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\UI\Scripts\PlayerStorageHandler.cs" />
+    <Compile Include="Assets\Shared\Scripts\FloorSpawnManager.cs" />
+    <Compile Include="Assets\UI\Scripts\Main Menu\NavigateToScene.cs" />
+    <Compile Include="Assets\PointsSystem\Points.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
+    <Compile Include="Assets\UI\Scripts\Settings\SliderUI.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponSway.cs" />
     <Compile Include="Assets\Storytelling\EmergencyLight\FlickerLight.cs" />
-    <Compile Include="Assets\UI\Scripts\DisplayManager.cs" />
-    <Compile Include="Assets\UI\Scripts\EntranceAnimation.cs" />
+    <Compile Include="Assets\UI\Scripts\HUD\PerkHUD.cs" />
     <Compile Include="Assets\PerkMachine\Script\FaceCamera.cs" />
-    <Compile Include="Assets\UI\Scripts\SettingsMenuManager.cs" />
-    <Compile Include="Assets\UI\Scripts\ToggleImageSwap.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\ItemData.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
-    <Compile Include="Assets\UI\Scripts\MenuNavigationManager.cs" />
-    <Compile Include="Assets\UI\Scripts\MenuButton.cs" />
-    <Compile Include="Assets\UI\Scripts\GamplayUIManager.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerController.cs" />
     <Compile Include="Assets\PerkMachine\Script\PlayerShooting.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\CrosshairController.cs" />
     <Compile Include="Assets\TextAnimations\TypewriterText.cs" />
+    <Compile Include="Assets\UI\Scripts\Settings\PlayerStorageHandler.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\evelator_controll.cs" />
-    <Compile Include="Assets\UI\Scripts\RebindUI.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Door.cs" />
-    <Compile Include="Assets\UI\Scripts\PauseMenuManager.cs" />
+    <Compile Include="Assets\UI\Scripts\Main Menu\MenuButton.cs" />
     <Compile Include="Assets\TextAnimations\IntroSequence.cs" />
+    <Compile Include="Assets\UI\Scripts\Settings\DisplayManager.cs" />
+    <Compile Include="Assets\UI\Scripts\Settings\SettingsMenuManager.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponPickup.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Shared\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerWeapons.cs" />
+    <Compile Include="Assets\UI\Scripts\HUD\HUDManager.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\pass_on_parent.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\UI\Scripts\LogoFlicker.cs" />
+    <Compile Include="Assets\UI\Scripts\Settings\ResolutionStepperUI.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponSwitcher.cs" />
+    <Compile Include="Assets\Scripts\Player\PerkType.cs" />
+    <Compile Include="Assets\Scripts\Player\WeaponData.cs" />
     <Compile Include="Assets\PerkMachine\Script\WeaponSwitcher.cs" />
-    <Compile Include="Assets\UI\Scripts\ScreenManager.cs" />
-    <Compile Include="Assets\UI\Scripts\SliderUI.cs" />
-    <Compile Include="Assets\UI\Scripts\DifficultyStepper.cs" />
-    <Compile Include="Assets\UI\Scripts\NavigateToScene.cs" />
+    <Compile Include="Assets\UI\Scripts\HUD\GamplayUIManager.cs" />
+    <Compile Include="Assets\MysteryBox\Script\MysteryBox.cs" />
+    <Compile Include="Assets\UI\Scripts\Main Menu\EntranceAnimation.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerPoints.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerPowerups.cs" />
+    <Compile Include="Assets\UI\Scripts\Settings\RebindUI.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\ZombieHealth.cs" />
-    <Compile Include="Assets\UI\Scripts\ResolutionStepperUI.cs" />
-    <Compile Include="Assets\PerkMachine\Script\PlayerMovement.cs" />
-    <Compile Include="Assets\PerkMachine\Script\PlayerHealth.cs" />
+    <Compile Include="Assets\UI\Scripts\HUD\PauseMenuManager.cs" />
+    <Compile Include="Assets\Scripts\Player\WeaponInstance.cs" />
     <Compile Include="Assets\TextAnimations\ReadableNote.cs" />
+    <Compile Include="Assets\Shared\Scripts\FloorDifficultySettings.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
-    <Compile Include="Assets\UI\Scripts\HUDManager.cs" />
-    <Compile Include="Assets\PerkMachine\Script\PlayerPoints.cs" />
+    <Compile Include="Assets\UI\Scripts\Main Menu\MenuNavigationManager.cs" />
+    <Compile Include="Assets\Scripts\Player\InteractionPrompt.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
+    <Compile Include="Assets\UI\Scripts\HUD\ScreenManager.cs" />
+    <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\UI\Scripts\Main Menu\LogoFlicker.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\Gun.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInventory2.cs" />
+    <Compile Include="Assets\PointsSystem\BuyableObject.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\DoorAction.cs" />
+    <Compile Include="Assets\UI\Scripts\Settings\DifficultyStepper.cs" />
+    <Compile Include="Assets\UI\Scripts\Main Menu\ToggleImageSwap.cs" />
     <Compile Include="Assets\PerkMachine\Script\PerkMachine.cs" />
+    <Compile Include="Assets\Shared\Scripts\GameSpawnController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerPerks.cs" />
+    <Compile Include="Assets\Shared\Scripts\ZombieSpawner.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Fix_elevator_fall.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1128,16 +1146,24 @@
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="glTFast.Editor">
+      <HintPath>Library\ScriptAssemblies\glTFast.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.003">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.003.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Shaders">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime.Shared">
@@ -1166,6 +1192,10 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="glTFast">
+      <HintPath>Library\ScriptAssemblies\glTFast.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
@@ -1224,12 +1254,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Collections.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    <Reference Include="Unity.VisualEffectGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.Collections.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
@@ -1242,6 +1276,18 @@
     </Reference>
     <Reference Include="Unity.Multiplayer.Center.Common">
       <HintPath>Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="glTFast.dots">
+      <HintPath>Library\ScriptAssemblies\glTFast.dots.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
@@ -1270,6 +1316,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics">
@@ -1302,6 +1352,10 @@
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
@@ -1347,7 +1401,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="OccaSoftware.Crosshairs.Editor.csproj">
-      <Project>{62A6448A-F5BB-8DA9-CCB3-B37CC690B630}</Project>
+      <Project>{ED59F70D-7017-88AA-8466-AA51FFAC74D9}</Project>
       <Name>OccaSoftware.Crosshairs.Editor</Name>
     </ProjectReference>
   </ItemGroup>

@@ -1,4 +1,4 @@
-//using UnityEngine;
+using UnityEngine;
 
 public class PerkMachine : MonoBehaviour
 {
@@ -11,23 +11,23 @@ public class PerkMachine : MonoBehaviour
     [SerializeField] private PlayerPoints playerPoints;
     [SerializeField] private bool hasBeenPurchased = false;
 
-//    private float startDelay = 1f;
+    //    private float startDelay = 1f;
 
-//    void Update()
-//    {
-//        if (playerNearby && Input.GetKeyDown(KeyCode.E))
-//        {
-//            if (player != null && Vector3.Distance(transform.position, player.transform.position) < 3f)
-//            {
-//                BuyPerk();
-//            }
-//            else
-//            {
-//                playerNearby = false;
-//                if (promptText != null) promptText.SetActive(false);
-//            }
-//        }
-//    }
+    void Update()
+    {
+        if (playerNearby && Input.GetKeyDown(KeyCode.E))
+        {
+            if (player != null && Vector3.Distance(transform.position, player.transform.position) < 3f)
+            {
+                BuyPerk();
+            }
+            else
+            {
+                playerNearby = false;
+                if (promptText != null) promptText.SetActive(false);
+            }
+        }
+    }
 
     void BuyPerk()
     {
@@ -43,14 +43,14 @@ public class PerkMachine : MonoBehaviour
             return;
         }
 
-//        hasBeenPurchased = true;
+        hasBeenPurchased = true;
 
         Debug.Log("Bought " + perkType + " perk!");
 
-//        if (buySound != null)
-//        {
-//            buySound.Play();
-//        }
+        if (buySound != null)
+        {
+            buySound.Play();
+        }
 
         // Apply perk effects via the perk system for modular modifiers.
         var perkSystem = player.GetComponent<PlayerPerks>();
@@ -66,19 +66,19 @@ public class PerkMachine : MonoBehaviour
             }
         }
 
-//        // Hide prompt
-//        if (promptText != null) promptText.SetActive(false);
-      
-//        Collider[] colliders = GetComponents<Collider>();
-//        foreach (Collider col in colliders)
-//        {
-//            if (col.isTrigger)
-//            {
-//                col.enabled = false;
-//                break;
-//            }
-//        }
-//    }
+        // Hide prompt
+        if (promptText != null) promptText.SetActive(false);
+
+        Collider[] colliders = GetComponents<Collider>();
+        foreach (Collider col in colliders)
+        {
+            if (col.isTrigger)
+            {
+                col.enabled = false;
+                break;
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -102,3 +102,4 @@ public class PerkMachine : MonoBehaviour
     }
 
 }
+

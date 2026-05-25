@@ -86,8 +86,8 @@ public class ZombieSpawner : MonoBehaviour
             Debug.LogError("Zombie prefab is missing ZombieHealth script!");
             return;
         }
-
-        health.OnDeath += () => _aliveCount--;
+        // TODO Fix this
+        //health.OnDeath += () => _aliveCount--;
     }
 
     void OnDrawGizmos()

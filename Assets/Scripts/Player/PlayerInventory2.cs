@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory2 : MonoBehaviour
 {
     private readonly HashSet<string> accessCards = new();
     private readonly List<string> items = new();

@@ -86,6 +86,9 @@ public class MenuNavigationManager : MonoBehaviour
         if (instructionsCloseButton != null)
             instructionsCloseButton.onClick.AddListener(HideInstructions);
 
+        if (settingsMenuManager != null)
+            settingsMenuManager.AddBackListener(ShowMainMenu);
+
         // ----- Initial UI State 
         // Main menu visible, settings hidden
         if (mainMenuPanel != null)
@@ -101,6 +104,12 @@ public class MenuNavigationManager : MonoBehaviour
         // Ensure only one setting sub-panel is active initially (useful when editing in the Inspector)
         if (settingsMenuManager != null)
             settingsMenuManager.InitializeView();
+    }
+
+    private void OnDestroy()
+    {
+        if (settingsMenuManager != null)
+            settingsMenuManager.RemoveBackListener(ShowMainMenu);
     }
 
     private void Update()

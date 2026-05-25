@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float baseWalkSpeed = 2f;
     [SerializeField] private float baseSprintSpeed = 6f;
     [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private Transform moveReference;
 
     private PlayerPerks perks;
     private PlayerInputHandler inputHandler;
@@ -26,12 +27,23 @@ public class PlayerMovement : MonoBehaviour
         inputHandler = GetComponent<PlayerInputHandler>();
         characterController = GetComponent<CharacterController>();
         rigidbodyComponent = GetComponent<Rigidbody>();
+
+        if (moveReference == null)
+        {
+            moveReference = transform;
+        }
     }
 
     private void Update()
     {
         var moveInput = inputHandler != null ? inputHandler.MoveInput : Vector2.zero;
-        var move = new Vector3(moveInput.x, 0f, moveInput.y);
+        var forward = moveReference.forward;
+        forward.y = 0f;
+        forward.Normalize();
+        var right = moveReference.right;
+        right.y = 0f;
+        right.Normalize();
+        var move = forward * moveInput.y + right * moveInput.x;
         var velocity = move * CurrentSpeed;
 
         if (characterController != null)

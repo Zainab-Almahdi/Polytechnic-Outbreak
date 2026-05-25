@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/office building.unity
     guid: 3960d2fa18afba04c969564829c5530b
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 2dfcf543b0e1ffb479357e9d73401837
   - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: c504acef91ecea243843173b60408ade

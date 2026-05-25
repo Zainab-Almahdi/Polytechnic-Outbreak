@@ -53,6 +53,11 @@ public class PlayerCameraLook : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            return;
+        }
+
         var mouseX = Input.GetAxis("Mouse X") * lookSensitivityMultiplier;
         var mouseY = Input.GetAxis("Mouse Y") * lookSensitivityMultiplier;
 

@@ -20,13 +20,13 @@ public class PlayerPowerups : MonoBehaviour
 
         switch (powerupName.Trim())
         {
-            case "Max Ammo":
+            case "MaxAmmoPowerup":
                 weapons?.RefillEquippedWeaponAmmo();
                 break;
-            case "Nuke":
+            case "NukePowerup":
                 HandleNuke();
                 break;
-            case "Money Drop":
+            case "MoneyDropPowerup":
                 var amount = Random.Range(500, 1501);
                 points?.AddPoints(amount);
                 break;

@@ -47,13 +47,16 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.13f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Shared\Scripts\FloorSpawnManager.cs" />
     <Compile Include="Assets\Storytelling\Intro\Scripts\CinematicIntro.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\NavigateToScene.cs" />
+    <Compile Include="Assets\PointsSystem\Points.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInteraction.cs" />
     <Compile Include="Assets\Storytelling\Notes\Script\NoteUI.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\SliderUI.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponSway.cs" />
     <Compile Include="Assets\Storytelling\EmergencyLight\FlickerLight.cs" />
+    <Compile Include="Assets\UI\Scripts\CreditsManager.cs" />
     <Compile Include="Assets\Storytelling\Notes\Script\NoteInteraction.cs" />
     <Compile Include="Assets\UI\Scripts\HUD\PerkHUD.cs" />
     <Compile Include="Assets\Storytelling\Notes\Script\TestPlayerMove.cs" />
@@ -90,8 +93,10 @@
     <Compile Include="Assets\Scripts\Player\WeaponData.cs" />
     <Compile Include="Assets\PerkMachine\Script\WeaponSwitcher.cs" />
     <Compile Include="Assets\UI\Scripts\HUD\GamplayUIManager.cs" />
+    <Compile Include="Assets\MysteryBox\Script\MysteryBox.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\EntranceAnimation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPoints.cs" />
+    <Compile Include="Assets\Scripts\AI\ZombieAI.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPowerups.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\RebindUI.cs" />
     <Compile Include="Assets\Storytelling\Intro\Scripts\IntroDate.cs" />
@@ -100,6 +105,7 @@
     <Compile Include="Assets\Powerup\Scripts\ZombieDropper.cs" />
     <Compile Include="Assets\Scripts\Player\WeaponInstance.cs" />
     <Compile Include="Assets\TextAnimations\ReadableNote.cs" />
+    <Compile Include="Assets\Shared\Scripts\FloorDifficultySettings.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\MenuNavigationManager.cs" />
     <Compile Include="Assets\Scripts\Player\InteractionPrompt.cs" />
@@ -108,13 +114,19 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\LogoFlicker.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\Gun.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInventory2.cs" />
+    <Compile Include="Assets\PointsSystem\BuyableObject.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\DoorAction.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerCameraLook.cs" />
     <Compile Include="Assets\WinConditions\Scripts\ExitDoor.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\DifficultyStepper.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\ToggleImageSwap.cs" />
     <Compile Include="Assets\PerkMachine\Script\PerkMachine.cs" />
+    <Compile Include="Assets\Shared\Scripts\GameSpawnController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerPerks.cs" />
+    <Compile Include="Assets\Shared\Scripts\ZombieSpawner.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Fix_elevator_fall.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInputHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -1135,6 +1147,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.003">
       <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.003.dll</HintPath>
       <Private>False</Private>
@@ -1175,12 +1191,12 @@
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.Shared.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
@@ -1263,6 +1279,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
       <Private>False</Private>
@@ -1295,6 +1315,10 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
       <Private>False</Private>
@@ -1325,6 +1349,10 @@
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">

@@ -28,6 +28,7 @@ public class ZombieHealth : MonoBehaviour
     void IsDead()
     {
         animator.SetTrigger("IsDead");
+
         if (zombieDropper != null)
         {
             zombieDropper.OnZombieDeath();

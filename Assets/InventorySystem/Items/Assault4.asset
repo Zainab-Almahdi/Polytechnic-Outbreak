@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16b1cc182092f548ac5cd3b99f25d0e, type: 3}
+  m_Name: Assault4
+  m_EditorClassIdentifier: 
+  itemName: Assault4
+  description: 
+  Icon: {fileID: 21300000, guid: 60d8024950e08874eb3b462e4a3c239b, type: 3}
+  itemPrefab: {fileID: 6539183219932065969, guid: 13b95622d31eca34ea6d8a40b9a4c234, type: 3}
+  handItemPrefab: {fileID: 0}
+  maxStackSize: 1

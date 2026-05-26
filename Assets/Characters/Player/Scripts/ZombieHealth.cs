@@ -28,15 +28,20 @@ public class ZombieHealth : MonoBehaviour
     void IsDead()
     {
         animator.SetTrigger("IsDead");
-
         if (zombieDropper != null)
         {
-        zombieDropper.OnZombieDeath();
+            zombieDropper.OnZombieDeath();
         }
 
         if (GameManager.Instance != null)
         {
-        GameManager.Instance.OnZombieKilled();
+            GameManager.Instance.OnZombieKilled();
+        }
+
+        var ai = GetComponent<ZombieAI>();
+        if (ai != null)
+        {
+            ai.OnDeath();
         }
         Destroy(gameObject, 3f);
     }

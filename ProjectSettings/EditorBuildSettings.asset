@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/office building.unity
     guid: 3960d2fa18afba04c969564829c5530b
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 2dfcf543b0e1ffb479357e9d73401837
   - enabled: 0
     path: Assets/Scenes/GameScene.unity
     guid: c504acef91ecea243843173b60408ade
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 289c1b55c9541489481df5cc06664110, type: 3}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 71fb7c3b80bc13c47af6c59e6c150c95, type: 3}
   m_UseUCBPForAssetBundles: 0

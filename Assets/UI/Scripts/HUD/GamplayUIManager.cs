@@ -82,6 +82,7 @@ public class GamplayUIManager : MonoBehaviour
         }
 
         ResumeTime();
+        SetCursorState(false);
         isPaused = false;
     }
 
@@ -98,6 +99,7 @@ public class GamplayUIManager : MonoBehaviour
         }
 
         PauseTime();
+        SetCursorState(true);
         isPaused = true;
     }
 
@@ -119,6 +121,7 @@ public class GamplayUIManager : MonoBehaviour
         }
 
         ResumeTime();
+        SetCursorState(true);
         isPaused = false;
     }
 
@@ -142,5 +145,11 @@ public class GamplayUIManager : MonoBehaviour
     void ResumeTime()
     {
         Time.timeScale = 1f;
+    }
+
+    void SetCursorState(bool isVisible)
+    {
+        Cursor.visible = isVisible;
+        Cursor.lockState = isVisible ? CursorLockMode.None : CursorLockMode.Locked;
     }
 }

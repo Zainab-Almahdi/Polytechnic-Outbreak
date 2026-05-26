@@ -314,7 +314,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -396,7 +396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2944941dbd88e64688ed2869f9b14f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  baseWalkSpeed: 2
+  baseSprintSpeed: 6
+  sprintKey: 304
 --- !u!114 &88477277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,9 +438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd55fe55f896154b966bc1a1677c0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  baseMaxHealth: 100
   currentHealth: 100
-  hasQuickRevive: 0
 --- !u!114 &88477280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,7 +1084,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1141,9 +1142,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkCost: 2500
-  perkName: 
+  perkType: 2
   promptText: {fileID: 0}
   buySound: {fileID: 270185164}
+  playerNearby: 0
+  player: {fileID: 0}
+  playerPoints: {fileID: 0}
+  hasBeenPurchased: 0
 --- !u!82 &270185164
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1753,9 +1758,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkCost: 2500
-  perkName: DoubleTap
+  perkType: 2
   promptText: {fileID: 187639498}
   buySound: {fileID: 333504237}
+  playerNearby: 0
+  player: {fileID: 0}
+  playerPoints: {fileID: 0}
+  hasBeenPurchased: 0
 --- !u!1 &461526362
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,7 +3651,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3705,9 +3714,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkCost: 2500
-  perkName: SpeedCola
+  perkType: 2
   promptText: {fileID: 1185314985}
   buySound: {fileID: 1638368837}
+  playerNearby: 0
+  player: {fileID: 0}
+  playerPoints: {fileID: 0}
+  hasBeenPurchased: 0
 --- !u!65 &1638368836
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4396,9 +4409,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkCost: 2500
-  perkName: QuickRevive
+  perkType: 2
   promptText: {fileID: 483722266}
   buySound: {fileID: 2080194664}
+  playerNearby: 0
+  player: {fileID: 0}
+  playerPoints: {fileID: 0}
+  hasBeenPurchased: 0
 --- !u!4 &2080194666 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: 34c793ceb0feb15458a85b8b3fd09cfb, type: 3}
@@ -4468,7 +4485,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4628,9 +4645,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkCost: 2500
-  perkName: Juggernog
+  perkType: 2
   promptText: {fileID: 212274357}
   buySound: {fileID: 2118277539}
+  playerNearby: 0
+  player: {fileID: 0}
+  playerPoints: {fileID: 0}
+  hasBeenPurchased: 0
 --- !u!65 &2118277541
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4743,9 +4764,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perkCost: 2500
-  perkName: MuleKick
+  perkType: 2
   promptText: {fileID: 1354938923}
   buySound: {fileID: 2134525765}
+  playerNearby: 0
+  player: {fileID: 0}
+  playerPoints: {fileID: 0}
+  hasBeenPurchased: 0
 --- !u!82 &2134525765
 AudioSource:
   m_ObjectHideFlags: 0

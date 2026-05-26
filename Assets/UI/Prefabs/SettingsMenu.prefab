@@ -771,6 +771,8 @@ MonoBehaviour:
   settingsPanel: {fileID: 7266541534336882988}
   backButton: {fileID: 1406697160779403075}
   settingsCanvasGroup: {fileID: 7625381770952783038}
+  isMainMenu: 1
+  pauseMenuManager: {fileID: 0}
   controlsPanel: {fileID: 2368271706627815910}
   displayPanel: {fileID: 7757213451800206017}
   difficultyPanel: {fileID: 8279673360154965260}

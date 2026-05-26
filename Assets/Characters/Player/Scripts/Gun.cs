@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Gun : MonoBehaviour
 {
-    MouseLook mouseLook;
+    private MouseLook mouseLook;
+    private PlayerInputHandler inputHandler;
+    private PlayerWeapons playerWeapons;
+    private WeaponInstance weaponInstance;
 
     public Camera playerCamera;
     public ParticleSystem muzzleFlash;
@@ -20,7 +23,6 @@ public class Gun : MonoBehaviour
     public int reserveAmmo = 210;
     public float reloadTime = 2.5f;
 
-    private int currentAmmo;
     private bool isReloading = false;
 
     public bool isBurstWeapon = false;
@@ -30,41 +32,64 @@ public class Gun : MonoBehaviour
     public int pelletCount = 8;
     public float spreadAngle = 5f;
 
-    // 🔥 ADD THIS (IMPORTANT)
-    private WeaponSwitcher weaponSwitcher;
+    public void Initialize(WeaponInstance instance, PlayerWeapons manager)
+    {
+        weaponInstance = instance;
+        playerWeapons = manager;
+
+        // Sync initial values if instance is valid
+        if (weaponInstance != null)
+        {
+            damage = weaponInstance.Damage;
+            headshotMultiplier = weaponInstance.HeadshotMultiplier;
+            range = weaponInstance.Range;
+            reloadTime = weaponInstance.ReloadSpeedSeconds;
+            magazineSize = weaponInstance.MagazineSize;
+            reserveAmmo = weaponInstance.ReserveAmmo;
+            isBurstWeapon = weaponInstance.IsBurstWeapon;
+            burstCount = weaponInstance.BurstCount;
+            isShotgun = weaponInstance.IsShotgun;
+            pelletCount = weaponInstance.PelletCount;
+            spreadAngle = weaponInstance.SpreadAngle;
+            
+            // Note: FireRate logic in WeaponInstance is RPM, but Gun uses seconds between shots.
+            // If RPM is set, use it.
+            if (weaponInstance.FireRateRpm > 0)
+            {
+                fireRate = 60f / weaponInstance.FireRateRpm;
+            }
+        }
+    }
 
     void Start()
     {
-        currentAmmo = magazineSize;
-
         if (playerCamera == null)
             playerCamera = Camera.main;
 
-        mouseLook = playerCamera.GetComponentInParent<MouseLook>();
+        if (playerCamera == null)
+            playerCamera = GetComponentInParent<Camera>();
 
-        // 🔥 FIND WEAPON SWITCHER
-        weaponSwitcher = GetComponentInParent<WeaponSwitcher>();
+        if (playerCamera != null)
+            mouseLook = playerCamera.GetComponentInParent<MouseLook>();
+
+        inputHandler = GetComponentInParent<PlayerInputHandler>();
     }
 
     void Update()
     {
-        if (isReloading) return;
-
-        // ❌ NO WEAPON = NO SHOOTING
-        if (weaponSwitcher == null || weaponSwitcher.GetCurrentWeapon() != gameObject)
-            return;
+        if (isReloading || weaponInstance == null || inputHandler == null) return;
 
         // RELOAD
-        if (Input.GetKeyDown(KeyCode.R))
+        if (inputHandler.ReloadPressed)
         {
             StartCoroutine(Reload());
             return;
         }
 
         // FIRE
-        if (Input.GetKey(KeyCode.Space) && Time.time >= nextTimeToFire)
+        if (inputHandler.ShootPressed && Time.time >= nextTimeToFire)
         {
-            if (currentAmmo <= 0)
+            if (weaponInstance.CurrentMagazineAmmo <= 0)
             {
                 StartCoroutine(Reload());
                 return;
@@ -75,26 +100,29 @@ public class Gun : MonoBehaviour
             if (isBurstWeapon)
                 StartCoroutine(BurstFire());
             else
+            {
                 Shoot();
-
-            currentAmmo--;
+                ConsumeAmmo();
+            }
         }
     }
 
     IEnumerator Reload()
     {
-        if (reserveAmmo <= 0 || currentAmmo == magazineSize)
+        if (weaponInstance.CurrentReserveAmmo <= 0 || weaponInstance.CurrentMagazineAmmo == weaponInstance.MagazineSize)
             yield break;
 
         isReloading = true;
 
         yield return new WaitForSeconds(reloadTime);
 
-        int ammoNeeded = magazineSize - currentAmmo;
-        int ammoToLoad = Mathf.Min(ammoNeeded, reserveAmmo);
+        int ammoNeeded = weaponInstance.MagazineSize - weaponInstance.CurrentMagazineAmmo;
+        int ammoToLoad = Mathf.Min(ammoNeeded, weaponInstance.CurrentReserveAmmo);
 
-        currentAmmo += ammoToLoad;
-        reserveAmmo -= ammoToLoad;
+        weaponInstance.CurrentMagazineAmmo += ammoToLoad;
+        weaponInstance.CurrentReserveAmmo -= ammoToLoad;
+        
+        NotifyAmmoChanged();
 
         isReloading = false;
     }
@@ -103,17 +131,23 @@ public class Gun : MonoBehaviour
     {
         for (int i = 0; i < burstCount; i++)
         {
-            if (currentAmmo <= 0)
+            if (weaponInstance.CurrentMagazineAmmo <= 0)
                 yield break;
 
             Shoot();
-            currentAmmo--;
+            ConsumeAmmo();
             yield return new WaitForSeconds(0.08f);
         }
     }
 
-    void Shoot()
+    private void ConsumeAmmo()
     {
+        weaponInstance.CurrentMagazineAmmo--;
+        NotifyAmmoChanged();
+    }
+
+    void Shoot()
+{
         if (muzzleFlash != null)
             muzzleFlash.Play();
 
@@ -128,6 +162,16 @@ public class Gun : MonoBehaviour
         else
         {
             FireRay(playerCamera.transform.forward);
+        }
+    }
+
+    private void NotifyAmmoChanged()
+    {
+        if (playerWeapons != null)
+        {
+            // We need to trigger the event in PlayerWeapons so Player.cs picks it up.
+            // I will add a public method to PlayerWeapons for this.
+            playerWeapons.InvokeAmmoChanged(weaponInstance.CurrentMagazineAmmo, weaponInstance.CurrentReserveAmmo);
         }
     }
 

@@ -39,7 +39,6 @@ namespace Assets.UI.Scripts
         [Header("Interact")]
         [SerializeField] private TMP_Text interactTextLabel;
 
-        //TODO: add interact prompt
 
         [Header("Perks")] [SerializeField] private GameObject PerksContainer;
 
@@ -49,6 +48,11 @@ namespace Assets.UI.Scripts
             if (interactTextLabel!= null)//default to hidden
             {
                 interactTextLabel.gameObject.SetActive(false);
+            }
+
+            if (PerksContainer != null)
+            {
+                PerksContainer.SetActive(false);
             }
 
         }

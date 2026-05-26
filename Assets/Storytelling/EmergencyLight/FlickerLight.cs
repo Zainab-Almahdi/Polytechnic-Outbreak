@@ -7,22 +7,30 @@ public class FlickerLight : MonoBehaviour
     public float maxIntensity = 3f;
     public float flickerSpeed = 0.08f;
 
-    private float timer;
+    private float targetIntensity;
 
     void Start()
     {
         if (targetLight == null)
             targetLight = GetComponent<Light>();
+
+        targetIntensity = targetLight.intensity;
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
+        targetLight.intensity = Mathf.Lerp(
+            targetLight.intensity,
+            targetIntensity,
+            Time.deltaTime * 15f
+        );
 
-        if (timer <= 0f)
+        flickerSpeed -= Time.deltaTime;
+
+        if (flickerSpeed <= 0f)
         {
-            targetLight.intensity = Random.Range(minIntensity, maxIntensity);
-            timer = flickerSpeed;
+            targetIntensity = Random.Range(minIntensity, maxIntensity);
+            flickerSpeed = Random.Range(0.03f, 0.1f);
         }
     }
 }

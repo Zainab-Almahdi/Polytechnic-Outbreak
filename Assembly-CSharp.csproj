@@ -83,9 +83,9 @@
     <Compile Include="Assets\Characters\Player\Scripts\MouseLook.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\ResolutionStepperUI.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerInventory.cs" />
+    <Compile Include="Assets\WinConditions\Scripts\GameManager.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\WeaponSwitcher.cs" />
     <Compile Include="Assets\Scripts\Player\PerkType.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerInventory_TEMP.cs" />
     <Compile Include="Assets\Storytelling\Notes\Script\NoteTest.cs" />
     <Compile Include="Assets\Scripts\Player\WeaponData.cs" />
     <Compile Include="Assets\PerkMachine\Script\WeaponSwitcher.cs" />
@@ -109,6 +109,7 @@
     <Compile Include="Assets\UI\Scripts\Main Menu\LogoFlicker.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\Gun.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\DoorAction.cs" />
+    <Compile Include="Assets\WinConditions\Scripts\ExitDoor.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\DifficultyStepper.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\ToggleImageSwap.cs" />
     <Compile Include="Assets\PerkMachine\Script\PerkMachine.cs" />

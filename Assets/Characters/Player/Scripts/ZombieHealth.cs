@@ -34,6 +34,10 @@ public class ZombieHealth : MonoBehaviour
         zombieDropper.OnZombieDeath();
         }
 
+        if (GameManager.Instance != null)
+        {
+        GameManager.Instance.OnZombieKilled();
+        }
         Destroy(gameObject, 3f);
     }
 }

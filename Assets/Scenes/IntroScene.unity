@@ -602,6 +602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleTap
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: b8e732d824e3da840b2bae5dc0135e6f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: b8e732d824e3da840b2bae5dc0135e6f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.87
@@ -2210,6 +2214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MuleKick
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: ae80d40f782eda34eb0594cdbe1f65f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: ae80d40f782eda34eb0594cdbe1f65f4, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.01
@@ -2390,6 +2398,10 @@ PrefabInstance:
     - target: {fileID: -6689036041284674117, guid: defe215850ea5884d9f63b555c904418, type: 3}
       propertyPath: m_Name
       value: IncreaseHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: defe215850ea5884d9f63b555c904418, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: defe215850ea5884d9f63b555c904418, type: 3}
       propertyPath: m_LocalScale.x
@@ -3412,6 +3424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FastReload
       objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: ea044e18845fa964f94716cdb139e913, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: ea044e18845fa964f94716cdb139e913, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.03
@@ -3944,6 +3960,10 @@ PrefabInstance:
     - target: {fileID: -6689036041284674117, guid: 34c793ceb0feb15458a85b8b3fd09cfb, type: 3}
       propertyPath: m_Name
       value: QuickRevive
+      objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 34c793ceb0feb15458a85b8b3fd09cfb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 34c793ceb0feb15458a85b8b3fd09cfb, type: 3}
       propertyPath: m_LocalScale.x

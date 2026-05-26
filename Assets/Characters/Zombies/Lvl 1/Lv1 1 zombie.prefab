@@ -56,18 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lv1 1 zombie
       objectReference: {fileID: 0}
-    - target: {fileID: 1092408308860062549, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000011067943
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092408308860062549, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.011702176
-      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 28a760fe575b941468fef55deba33702, type: 2}
+      objectReference: {fileID: 9100000, guid: c47b2e6310a437d4f819a54820807ac9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -77,10 +69,7 @@ PrefabInstance:
       addedObject: {fileID: 289362691675012174}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1649349780819495841}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8176315662390324105}
+      addedObject: {fileID: -4871230517689953417}
     - targetCorrespondingSourceObject: {fileID: -1781356600409242780, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2587593604271820713}
@@ -104,29 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 7000462680005879940}
---- !u!195 &1649349780819495841
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4363248959723710532}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 2.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1.2
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &8176315662390324105
+--- !u!114 &-4871230517689953417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,12 +102,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4363248959723710532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ca289a7eadbc4e40b706c02660e20f2, type: 3}
+  m_Script: {fileID: 11500000, guid: fddb7fd320645694fb69f9ba0e771836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1.5
-  attackDamage: 25
-  attackCooldown: 1.5
+  powerupPrefabs:
+  - {fileID: 3188761625529107651, guid: 8bf7d3b06fa5d3e498e3702e5b74dc28, type: 3}
+  - {fileID: 8448807417504908889, guid: 049fb2b4629536546991449d1475822e, type: 3}
+  - {fileID: 867856639922833414, guid: 3298f3f42609ff949b25bea9c7a0acac, type: 3}
+  dropChance: 0.05
 --- !u!1 &6272229512137594481 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1781356600409242780, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}

@@ -26,10 +26,14 @@ namespace Assets.UI.Scripts
                 nextButton.onClick.AddListener(NextResolution);
             }
 
+            UISFXButtonHover.Ensure(nextButton);
+
             if (previousButton != null)
             {
                 previousButton.onClick.AddListener(PreviousResolution);
             }
+
+            UISFXButtonHover.Ensure(previousButton);
 
             BuildResolutionList();
 
@@ -122,6 +126,8 @@ namespace Assets.UI.Scripts
 
         public void NextResolution()
         {
+            if (UISFXManager.Instance != null)
+                UISFXManager.Instance.PlayClick();
             currentIndex++;
 
             if (currentIndex >= resolutions.Count)
@@ -134,6 +140,8 @@ namespace Assets.UI.Scripts
 
         public void PreviousResolution()
         {
+            if (UISFXManager.Instance != null)
+                UISFXManager.Instance.PlayClick();
             currentIndex--;
 
             if (currentIndex < 0)

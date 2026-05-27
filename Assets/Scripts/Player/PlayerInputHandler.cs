@@ -1,11 +1,19 @@
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
+using Assets.UI.Scripts;
+
 public class PlayerInputHandler : MonoBehaviour
 {
-    [Header("Look")]
-    [SerializeField] private float mouseSensitivity = 1f;
+    [Header("Input Asset")]
+    [SerializeField] private InputActionAsset playerControls;
+
+    private InputAction moveAction;
+    private InputAction lookAction;
+    private InputAction sprintAction;
+    private InputAction shootAction;
+    private InputAction reloadAction;
+    private InputAction interactAction;
+    private InputAction switchWeaponAction;
 
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
@@ -13,47 +21,57 @@ public class PlayerInputHandler : MonoBehaviour
     public bool ShootPressed { get; private set; }
     public bool ReloadPressed { get; private set; }
     public bool InteractPressed { get; private set; }
+    public bool SwitchWeaponPressed { get; private set; }
+
+    private void Awake()
+    {
+        if (playerControls == null)
+        {
+            return;
+        }
+
+        var playerMap = playerControls.FindActionMap("Player");
+        if (playerMap != null)
+        {
+            moveAction = playerMap.FindAction("Move");
+            lookAction = playerMap.FindAction("Look");
+            sprintAction = playerMap.FindAction("Sprint");
+            shootAction = playerMap.FindAction("Shoot");
+            reloadAction = playerMap.FindAction("Reload");
+            interactAction = playerMap.FindAction("Interact");
+            switchWeaponAction = playerMap.FindAction("Switch Weapon");
+        }
+    }
+
+    private void OnEnable()
+    {
+        playerControls?.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls?.Disable();
+    }
 
     private void Update()
     {
-#if ENABLE_INPUT_SYSTEM
-        var keyboard = Keyboard.current;
-        var mouse = Mouse.current;
-
-        if (keyboard != null)
+        if (playerControls == null || moveAction == null || lookAction == null || sprintAction == null || 
+            shootAction == null || reloadAction == null || interactAction == null || switchWeaponAction == null)
         {
-            var x = (keyboard.dKey.isPressed ? 1f : 0f) - (keyboard.aKey.isPressed ? 1f : 0f);
-            var y = (keyboard.wKey.isPressed ? 1f : 0f) - (keyboard.sKey.isPressed ? 1f : 0f);
-            MoveInput = new Vector2(x, y);
-            SprintHeld = keyboard.leftShiftKey.isPressed;
-            ReloadPressed = keyboard.rKey.wasPressedThisFrame;
-            InteractPressed = keyboard.eKey.wasPressedThisFrame;
-        }
-        else
-        {
-            MoveInput = Vector2.zero;
-            SprintHeld = false;
-            ReloadPressed = false;
-            InteractPressed = false;
+            return;
         }
 
-        if (mouse != null)
-        {
-            LookInput = mouse.delta.ReadValue() * mouseSensitivity;
-            ShootPressed = mouse.leftButton.isPressed;
-        }
-        else
-        {
-            LookInput = Vector2.zero;
-            ShootPressed = false;
-        }
-#else
-        MoveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        LookInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * mouseSensitivity;
-        SprintHeld = Input.GetKey(KeyCode.LeftShift);
-        ShootPressed = Input.GetMouseButton(0);
-        ReloadPressed = Input.GetKeyDown(KeyCode.R);
-        InteractPressed = Input.GetKeyDown(KeyCode.E);
-#endif
+        MoveInput = moveAction.ReadValue<Vector2>();
+
+        // Apply sensitivity from storage
+        float sensitivity = PlayerStorageHandler.GetMouseSensitivity();
+        LookInput = lookAction.ReadValue<Vector2>() * sensitivity;
+
+        SprintHeld = sprintAction.IsPressed();
+        ShootPressed = shootAction.IsPressed();
+
+        ReloadPressed = reloadAction.WasPressedThisFrame();
+        InteractPressed = interactAction.WasPressedThisFrame();
+        SwitchWeaponPressed = switchWeaponAction != null && switchWeaponAction.WasPressedThisFrame();
     }
 }

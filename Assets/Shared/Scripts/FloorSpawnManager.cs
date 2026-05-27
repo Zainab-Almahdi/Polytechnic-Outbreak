@@ -20,26 +20,32 @@ public class FloorSpawnManager : MonoBehaviour
         Debug.Log($"Floor {floorIndex + 1} found {_spawners.Count} spawners.");
     }
 
-    // Called by FloorTriggerZone
-    public void OnPlayerEntered()
+    // Fires when player walks into the floor's box collider
+    void OnTriggerEnter(Collider other)
     {
-        // Tell the controller the player changed floors
-        spawnController.OnPlayerChangedFloor(floorIndex);
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log($"Player entered Floor {floorIndex + 1}");
+            spawnController.OnPlayerChangedFloor(floorIndex);
+        }
     }
 
     public void ActivateFloor()
     {
         foreach (ZombieSpawner spawner in _spawners)
             spawner.Activate();
+
+        Debug.Log($"Floor {floorIndex + 1} activated.");
     }
 
     public void DeactivateFloor()
     {
         foreach (ZombieSpawner spawner in _spawners)
             spawner.Deactivate();
+
+        Debug.Log($"Floor {floorIndex + 1} deactivated.");
     }
 
-    // Used by GameSpawnController to adjust difficulty
     public List<ZombieSpawner> GetSpawners()
     {
         return _spawners;

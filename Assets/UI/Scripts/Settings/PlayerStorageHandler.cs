@@ -1,33 +1,40 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace Assets.UI.Scripts
 {
-    internal class PlayerStorageHandler
+    public class PlayerStorageHandler
     {
-        private const string InitializedKey = "PlayerStorageInitialized";
+        public const string InitializedKey = "PlayerStorageInitialized";
 
-        private const string MoveForwardKey = "Keybind.MoveForward";
-        private const string MoveBackwardKey = "Keybind.MoveBackward";
-        private const string MoveLeftKey = "Keybind.MoveLeft";
-        private const string MoveRightKey = "Keybind.MoveRight";
-        private const string ShootKey = "Keybind.Shoot";
-        private const string ReloadKey = "Keybind.Reload";
-        private const string InteractKey = "Keybind.Interact";
-        private const string MouseSensitivityKey = "Keybind.MouseSensitivity";
-        private const string SwitchWeaponKey = "Keybind.SwitchWeapon";
-        private const string SprintKey = "Keybind.Sprint";
+        public const string MoveForwardKey = "Keybind.MoveForward";
+        public const string MoveBackwardKey = "Keybind.MoveBackward";
+        public const string MoveLeftKey = "Keybind.MoveLeft";
+        public const string MoveRightKey = "Keybind.MoveRight";
+        public const string ShootKey = "Keybind.Shoot";
+        public const string ReloadKey = "Keybind.Reload";
+        public const string InteractKey = "Keybind.Interact";
+        public const string MouseSensitivityKey = "Keybind.MouseSensitivity";
+        public const string SwitchWeaponKey = "Keybind.SwitchWeapon";
+        public const string SprintKey = "Keybind.Sprint";
 
-        private const string GameDifficultyKey = "Difficulty.GameDifficulty";
-        private const string FriendlyFireKey = "Difficulty.FriendlyFire";
-        private const string PermaDeathKey = "Difficulty.PermaDeath";
+        public const string GameDifficultyKey = "Difficulty.GameDifficulty";
+        public const string FriendlyFireKey = "Difficulty.FriendlyFire";
+        public const string PermaDeathKey = "Difficulty.PermaDeath";
 
-        private const string ResolutionKey = "Display.Resolution";
-        private const string VsyncKey = "Display.Vsync";
-        private const string MotionBlurKey = "Display.MotionBlur";
-        private const string FilmGrainKey = "Display.FilmGrain";
-        private const string ChromaticAberrationKey = "Display.ChromaticAberration";
-        private const string BrightnessKey  = "Display.Brightness";
+        public const string ResolutionKey = "Display.Resolution";
+        public const string VsyncKey = "Display.Vsync";
+        public const string MotionBlurKey = "Display.MotionBlur";
+        public const string FilmGrainKey = "Display.FilmGrain";
+        public const string ChromaticAberrationKey = "Display.ChromaticAberration";
+        public const string BrightnessKey  = "Display.Brightness";
+
+        public static float GetMouseSensitivity()
+        {
+            // Sensitivity is stored as an int (default 50). 
+            // We map this to a usable multiplier (e.g. 50 -> 1.0, 100 -> 2.0).
+            return PlayerPrefs.GetInt(MouseSensitivityKey, 50) / 50f;
+        }
 
         public static void EnsureInitialized()
         {

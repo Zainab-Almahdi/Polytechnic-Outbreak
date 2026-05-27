@@ -1,11 +1,13 @@
 using UnityEngine;
+using Assets.UI.Scripts;
 
 public class MouseLook : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
+    private PlayerInputHandler inputHandler;
+    public float mouseSensitivity = 1f;
 
     [Header("Recoil")]
-    public float recoilKick = 2f;
+public float recoilKick = 2f;
     public float recoilReturnSpeed = 10f;
 
     private float xRotation = 0f;
@@ -16,14 +18,18 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
+        inputHandler = GetComponentInParent<PlayerInputHandler>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (inputHandler == null) return;
+
+        float sensitivity = PlayerStorageHandler.GetMouseSensitivity();
+        float mouseX = inputHandler.LookInput.x * mouseSensitivity * sensitivity;
+        float mouseY = inputHandler.LookInput.y * mouseSensitivity * sensitivity;
 
         // Permanent look
         xRotation -= mouseY;

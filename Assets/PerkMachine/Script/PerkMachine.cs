@@ -15,16 +15,20 @@ public class PerkMachine : MonoBehaviour
 
     void Update()
     {
-        if (playerNearby && Input.GetKeyDown(KeyCode.E))
+        if (playerNearby)
         {
-            if (player != null && Vector3.Distance(transform.position, player.transform.position) < 3f)
+            var input = player.GetComponent<PlayerInputHandler>();
+            if (input != null && input.InteractPressed)
             {
-                BuyPerk();
-            }
-            else
-            {
-                playerNearby = false;
-                if (promptText != null) promptText.SetActive(false);
+                if (Vector3.Distance(transform.position, player.transform.position) < 3f)
+                {
+                    BuyPerk();
+                }
+                else
+                {
+                    playerNearby = false;
+                    if (promptText != null) promptText.SetActive(false);
+                }
             }
         }
     }

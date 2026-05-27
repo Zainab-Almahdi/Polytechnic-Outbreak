@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -7,18 +7,12 @@ namespace Assets.UI.Scripts
 {
     public class DisplayManager : MonoBehaviour
     {
-        private const string ResolutionKey = "Display.Resolution";
-        private const string VsyncKey = "Display.Vsync";
-        private const string MotionBlurKey = "Display.MotionBlur";
-        private const string FilmGrainKey = "Display.FilmGrain";
-        private const string ChromaticAberrationKey = "Display.ChromaticAberration";
-        private const string BrightnessKey = "Display.Brightness";
-
         [Header("Post Processing")]
         [SerializeField] private Volume postProcessVolume;
 
         void Start()
         {
+            PlayerStorageHandler.EnsureInitialized();
             ApplySettingsFromPrefs();
         }
 
@@ -32,12 +26,12 @@ namespace Assets.UI.Scripts
 
         void ApplyResolutionFromPrefs()
         {
-            if (!PlayerPrefs.HasKey(ResolutionKey))
+            if (!PlayerPrefs.HasKey(PlayerStorageHandler.ResolutionKey))
             {
                 return;
             }
 
-            string saved = PlayerPrefs.GetString(ResolutionKey);
+            string saved = PlayerPrefs.GetString(PlayerStorageHandler.ResolutionKey);
             string[] split = saved.Split('x');
 
             if (split.Length != 2 ||
@@ -74,7 +68,7 @@ namespace Assets.UI.Scripts
         void ApplyVsyncFromPrefs()
         {
             int enabled = PlayerPrefs.GetInt(
-                VsyncKey,
+                PlayerStorageHandler.VsyncKey,
                 QualitySettings.vSyncCount > 0 ? 1 : 0
             );
 
@@ -90,18 +84,18 @@ namespace Assets.UI.Scripts
 
             if (postProcessVolume.profile.TryGet(out MotionBlur motionBlur))
             {
-                motionBlur.active = PlayerPrefs.GetInt(MotionBlurKey, 1) != 0;
+                motionBlur.active = PlayerPrefs.GetInt(PlayerStorageHandler.MotionBlurKey, 1) != 0;
             }
 
             if (postProcessVolume.profile.TryGet(out FilmGrain filmGrain))
             {
-                filmGrain.active = PlayerPrefs.GetInt(FilmGrainKey, 1) != 0;
+                filmGrain.active = PlayerPrefs.GetInt(PlayerStorageHandler.FilmGrainKey, 1) != 0;
             }
 
             if (postProcessVolume.profile.TryGet(out ChromaticAberration chromaticAberration))
             {
                 chromaticAberration.active =
-                    PlayerPrefs.GetInt(ChromaticAberrationKey, 1) != 0;
+                    PlayerPrefs.GetInt(PlayerStorageHandler.ChromaticAberrationKey, 1) != 0;
             }
         }
 
@@ -117,7 +111,7 @@ namespace Assets.UI.Scripts
                 return;
             }
 
-            float brightness = PlayerPrefs.GetFloat(BrightnessKey, colorAdjustments.postExposure.value);
+            float brightness = PlayerPrefs.GetFloat(PlayerStorageHandler.BrightnessKey, colorAdjustments.postExposure.value);
             colorAdjustments.postExposure.value = brightness;
         }
     }

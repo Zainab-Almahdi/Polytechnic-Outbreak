@@ -79,15 +79,32 @@ public class ZombieSpawner : MonoBehaviour
         GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
         _aliveCount++;
 
+        // Hook into teammate's ZombieHealth
         ZombieHealth health = zombie.GetComponent<ZombieHealth>();
-
-        if (health == null)
+        if (health != null)
         {
-            Debug.LogError("Zombie prefab is missing ZombieHealth script!");
-            return;
+            // Start watching for when the zombie is destroyed
+            StartCoroutine(WaitForDeath(zombie));
         }
-        // TODO Fix this
-        //health.OnDeath += () => _aliveCount--;
+        else
+        {
+            Debug.LogWarning($"{gameObject.name} spawned a zombie with no ZombieHealth!");
+        }
+
+        Debug.Log($"{gameObject.name} spawned a zombie. Alive: {_aliveCount}");
+    }
+
+    IEnumerator WaitForDeath(GameObject zombie)
+    {
+        // Keep checking until the zombie is destroyed
+        while (zombie != null)
+        {
+            yield return null;
+        }
+
+        // Zombie was destroyed — reduce count
+        _aliveCount--;
+        Debug.Log($"{gameObject.name} zombie died. Alive: {_aliveCount}");
     }
 
     void OnDrawGizmos()

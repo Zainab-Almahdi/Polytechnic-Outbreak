@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public PlayerPowerups Powerups { get; private set; }
     public PlayerPoints Points { get; private set; }
 
+
     private void Awake()
     {
         Health = GetComponent<PlayerHealth>();
@@ -28,6 +29,12 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        SkinnedMeshRenderer[] meshes = GetComponentsInChildren<SkinnedMeshRenderer>();
+        foreach (SkinnedMeshRenderer mesh in meshes)
+        {
+            mesh.enabled = false;
+        }
+
         if (Health != null)
         {
             Health.HealthChanged += OnHealthChanged;

@@ -1236,6 +1236,7 @@ MonoBehaviour:
     inactiveSprite: {fileID: 21300000, guid: 21b6c623082c71d4089cf87f74539486, type: 3}
     hoverSprite: {fileID: 21300000, guid: 403fe3461c4cf064688ca54a917927b0, type: 3}
     originalScale: {x: 0, y: 0, z: 0}
+  rebindHintImage: {fileID: 0}
   onBackRequested:
     m_PersistentCalls:
       m_Calls: []
@@ -3035,6 +3036,7 @@ GameObject:
   - component: {fileID: 448853999}
   - component: {fileID: 448853998}
   - component: {fileID: 448853997}
+  - component: {fileID: 448854010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3150,7 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f18b3355c26144b99dd1c1c10f9972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 20
+  playerControls: {fileID: 0}
 --- !u!114 &448854005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3237,6 +3239,18 @@ Transform:
   - {fileID: 580016865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &448854010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448853996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cfaa3b1e00038489596d1c9039b7d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &463874465
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,10 +25,14 @@ namespace Assets.UI.Scripts
                 nextButton.onClick.AddListener(NextDifficulty);
             }
 
+            UISFXButtonHover.Ensure(nextButton);
+
             if (previousButton != null)
             {
                 previousButton.onClick.AddListener(PreviousDifficulty);
             }
+
+            UISFXButtonHover.Ensure(previousButton);
 
             LoadSavedDifficulty();
             UpdateDifficultyText();
@@ -67,6 +71,8 @@ namespace Assets.UI.Scripts
 
         public void NextDifficulty()
         {
+            if (UISFXManager.Instance != null)
+                UISFXManager.Instance.PlayClick();
             currentIndex++;
 
             if (currentIndex >= difficulties.Length)
@@ -79,6 +85,8 @@ namespace Assets.UI.Scripts
 
         public void PreviousDifficulty()
         {
+            if (UISFXManager.Instance != null)
+                UISFXManager.Instance.PlayClick();
             currentIndex--;
 
             if (currentIndex < 0)

@@ -20,20 +20,28 @@ public class PauseMenuManager : MonoBehaviour
             continueButton.onClick.AddListener(HandleContinue);
         }
 
+        UISFXButtonHover.Ensure(continueButton);
+
         if (settingsButton != null)
         {
             settingsButton.onClick.AddListener(HandleSettings);
         }
+
+        UISFXButtonHover.Ensure(settingsButton);
 
         if (giveUpButton != null)
         {
             giveUpButton.onClick.AddListener(HandleGiveUp);
         }
 
+        UISFXButtonHover.Ensure(giveUpButton);
+
         if (exitButton != null)
         {
             exitButton.onClick.AddListener(HandleExit);
         }
+
+        UISFXButtonHover.Ensure(exitButton);
 
     }
 
@@ -63,6 +71,8 @@ public class PauseMenuManager : MonoBehaviour
 
     void HandleContinue()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayClick();
         if (gameplayUiManager != null)
         {
             gameplayUiManager.ShowHud();
@@ -71,6 +81,8 @@ public class PauseMenuManager : MonoBehaviour
 
     void HandleSettings()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayClick();
         if (settingsMenuManager != null)
         {
             settingsMenuManager.Open(HandleSettingsBack);
@@ -92,6 +104,8 @@ public class PauseMenuManager : MonoBehaviour
 
     void HandleGiveUp()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayConfirm();
         if (gameplayUiManager != null)
         {
             gameplayUiManager.ShowGameOver();
@@ -100,6 +114,8 @@ public class PauseMenuManager : MonoBehaviour
 
     void HandleExit()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayConfirm();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

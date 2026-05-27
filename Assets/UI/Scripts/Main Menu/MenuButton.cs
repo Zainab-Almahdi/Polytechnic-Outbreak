@@ -56,6 +56,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         ApplyHoverCursor();
         StopAllCoroutines();
         StartCoroutine(AnimateHover(true));
+        UISFXManager.Instance.PlayHover();
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -64,6 +65,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         ClearHoverCursor();
         StopAllCoroutines();
         StartCoroutine(AnimateHover(false));
+
     }
 
     void OnDisable()

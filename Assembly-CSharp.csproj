@@ -64,12 +64,14 @@
     <Compile Include="Assets\Storytelling\Intro\Scripts\LogoSoundController.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\ItemData.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerWeaponController.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerController.cs" />
     <Compile Include="Assets\PerkMachine\Script\PlayerShooting.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\CrosshairController.cs" />
     <Compile Include="Assets\TextAnimations\TypewriterText.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\PlayerStorageHandler.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\evelator_controll.cs" />
+    <Compile Include="Assets\UI\Scripts\Main Menu\UISFXManager.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Door.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\MenuButton.cs" />
     <Compile Include="Assets\Powerup\Scripts\PowerupPickup.cs" />
@@ -84,6 +86,8 @@
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\pass_on_parent.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\UI\Scripts\UIRowHoverEffect.cs" />
+    <Compile Include="Assets\UI\Scripts\UISFXButtonHover.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\ResolutionStepperUI.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\WinConditions\Scripts\GameManager.cs" />
@@ -118,6 +122,7 @@
     <Compile Include="Assets\PointsSystem\BuyableObject.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\DoorAction.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCameraLook.cs" />
+    <Compile Include="Assets\UI\Scripts\UIButtonSFX.cs" />
     <Compile Include="Assets\WinConditions\Scripts\ExitDoor.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\DifficultyStepper.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\ToggleImageSwap.cs" />
@@ -641,6 +646,10 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@d6f9955a5d5f\Mono.Cecil.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@74deb55db2a0\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

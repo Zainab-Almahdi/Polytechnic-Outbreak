@@ -86,6 +86,10 @@ public class MenuNavigationManager : MonoBehaviour
         if (instructionsCloseButton != null)
             instructionsCloseButton.onClick.AddListener(HideInstructions);
 
+        UISFXButtonHover.Ensure(exitConfirmButton);
+        UISFXButtonHover.Ensure(exitCancelButton);
+        UISFXButtonHover.Ensure(instructionsCloseButton);
+
         if (settingsMenuManager != null)
             settingsMenuManager.AddBackListener(ShowMainMenu);
 
@@ -143,13 +147,16 @@ public class MenuNavigationManager : MonoBehaviour
 
     private void OnPlay()
     {
-        
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlaySelect();
         BeginFadeOut(() => onPlayClicked?.Invoke());
         SceneManager.LoadScene(PlaySceneName);
     }
 
     private void OnCredits()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlaySelect();
         BeginFadeOut(() => onPlayClicked?.Invoke());
         SceneManager.LoadScene(CreditsSceneName);
     }
@@ -164,30 +171,40 @@ public class MenuNavigationManager : MonoBehaviour
 
     private void ShowExitConfirmation()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayDialogOpen();
         if (exitConfirmationPanel != null)
             exitConfirmationPanel.SetActive(true);
     }
 
     private void HideExitConfirmation()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayDialogClose();
         if (exitConfirmationPanel != null)
             exitConfirmationPanel.SetActive(false);
     }
 
     private void ShowInstructions()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayDialogOpen();
         if (instructionsPanel != null)
             instructionsPanel.SetActive(true);
     }
 
     private void HideInstructions()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayDialogClose();
         if (instructionsPanel != null)
             instructionsPanel.SetActive(false);
     }
 
     private void ConfirmExit()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayConfirm();
         HideExitConfirmation();
         BeginFadeOut(HandleExit);
     }
@@ -293,6 +310,8 @@ public class MenuNavigationManager : MonoBehaviour
 
     public void ShowSettings()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayClick();
         if (mainMenuPanel != null)
             mainMenuPanel.SetActive(false);
         if (settingsMenuManager != null)

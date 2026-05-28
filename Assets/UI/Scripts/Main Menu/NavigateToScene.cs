@@ -33,6 +33,8 @@ public class SceneChanger : MonoBehaviour
 
     public void ChangeScene()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlaySelect();
         if (sceneIndex >= 0)
             SceneManager.LoadScene(sceneIndex);
         else if (!string.IsNullOrEmpty(sceneName))

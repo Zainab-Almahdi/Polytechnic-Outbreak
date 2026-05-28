@@ -11,10 +11,14 @@ public class PlayerCameraLook : MonoBehaviour
 
     private float xRotation;
 
+    private PlayerInputHandler inputHandler;
+
     private void Awake()
     {
+        inputHandler = GetComponentInParent<PlayerInputHandler>();
+
         if (playerCamera == null)
-        {
+{
             playerCamera = GetComponent<Camera>();
         }
 
@@ -58,8 +62,9 @@ public class PlayerCameraLook : MonoBehaviour
             return;
         }
 
-        var mouseX = Input.GetAxis("Mouse X") * lookSensitivityMultiplier;
-        var mouseY = Input.GetAxis("Mouse Y") * lookSensitivityMultiplier;
+        var lookInput = inputHandler != null ? inputHandler.LookInput : Vector2.zero;
+        var mouseX = lookInput.x * lookSensitivityMultiplier;
+        var mouseY = lookInput.y * lookSensitivityMultiplier;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -maxPitch, maxPitch);

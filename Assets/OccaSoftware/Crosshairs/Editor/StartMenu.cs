@@ -123,6 +123,9 @@ namespace OccaSoftware.Crosshairs.Editor
         #region UI Drawer
         private void DrawHeader()
         {
+            if (logo == null)
+                return;
+
             GUILayout.BeginVertical(contentSection, contentLayoutOptions);
             GUIStyle logoStyle = new GUIStyle("label");
             GUILayoutOption[] logoOptions = new GUILayoutOption[] { GUILayout.Width(230) };

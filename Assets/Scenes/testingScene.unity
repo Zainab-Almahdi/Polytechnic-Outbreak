@@ -583,6 +583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseWalkSpeed: 2
   baseSprintSpeed: 6
+  gravity: -9.81
+  moveReference: {fileID: 0}
 --- !u!1 &126884743
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1177,7 @@ MonoBehaviour:
     inactiveSprite: {fileID: 21300000, guid: 21b6c623082c71d4089cf87f74539486, type: 3}
     hoverSprite: {fileID: 21300000, guid: 403fe3461c4cf064688ca54a917927b0, type: 3}
     originalScale: {x: 0, y: 0, z: 0}
+  rebindHintImage: {fileID: 0}
   onBackRequested:
     m_PersistentCalls:
       m_Calls: []
@@ -5223,6 +5226,7 @@ MonoBehaviour:
   equippedWeaponIndex: 0
   defaultWeapon: {fileID: 0}
   defaultWeaponPrefab: {fileID: 6539183219932065969, guid: 38e300bd7202c5547906580ddffca148, type: 3}
+  weaponMount: {fileID: 0}
 --- !u!1 &982652466
 GameObject:
   m_ObjectHideFlags: 0
@@ -8833,6 +8837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1451561123}
   - component: {fileID: 1451561124}
+  - component: {fileID: 1451561125}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8865,6 +8870,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bd209b611d974f4eafb320839a77744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1451561125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451561122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cfaa3b1e00038489596d1c9039b7d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1467189095
@@ -12106,13 +12123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f18b3355c26144b99dd1c1c10f9972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAction: {fileID: -5475978914392728728, guid: 71fb7c3b80bc13c47af6c59e6c150c95, type: 3}
-  lookAction: {fileID: -3224981662203659993, guid: 71fb7c3b80bc13c47af6c59e6c150c95, type: 3}
-  sprintAction: {fileID: 1872113047281608679, guid: 71fb7c3b80bc13c47af6c59e6c150c95, type: 3}
-  shootAction: {fileID: 3406605694084754364, guid: 71fb7c3b80bc13c47af6c59e6c150c95, type: 3}
-  reloadAction: {fileID: 7958752131017092150, guid: 71fb7c3b80bc13c47af6c59e6c150c95, type: 3}
-  interactAction: {fileID: -1110809484760636318, guid: 71fb7c3b80bc13c47af6c59e6c150c95, type: 3}
-  mouseSensitivity: 1
+  playerControls: {fileID: 0}
 --- !u!224 &1809148252 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 267490653678169532, guid: 58f7c961b97a16849b396dda724d240f, type: 3}

@@ -65,8 +65,13 @@ public class SettingsMenuManager : MonoBehaviour
     [SerializeField] private TabButtonState displayTabButton;
     [SerializeField] private TabButtonState difficultyTabButton;
 
+    [Header("Rebind Hint")]
+    [SerializeField] private Image rebindHintImage;
+
     [Header("Events")]
     [SerializeField] private UnityEvent onBackRequested;
+
+
 
     private UnityAction backOverride;
 
@@ -102,20 +107,28 @@ public class SettingsMenuManager : MonoBehaviour
             backButton.onClick.AddListener(RequestBack);
         }
 
+        UISFXButtonHover.Ensure(backButton);
+
         if (controlsTabButton != null && controlsTabButton.button != null)
         {
             controlsTabButton.button.onClick.AddListener(ShowControlsPanel);
         }
+
+        UISFXButtonHover.Ensure(controlsTabButton != null ? controlsTabButton.button : null);
 
         if (displayTabButton != null && displayTabButton.button != null)
         {
             displayTabButton.button.onClick.AddListener(ShowDisplayPanel);
         }
 
+        UISFXButtonHover.Ensure(displayTabButton != null ? displayTabButton.button : null);
+
         if (difficultyTabButton != null && difficultyTabButton.button != null)
         {
             difficultyTabButton.button.onClick.AddListener(ShowDifficultyPanel);
         }
+
+        UISFXButtonHover.Ensure(difficultyTabButton != null ? difficultyTabButton.button : null);
 
         SetupTabHandler(controlsTabButton);
         SetupTabHandler(displayTabButton);
@@ -129,6 +142,13 @@ public class SettingsMenuManager : MonoBehaviour
         {
             InitializeView();
         }
+
+        HideRebindHints();
+    }
+
+    void OnEnable()
+    {
+        HideRebindHints();
     }
 
     void OnDestroy()
@@ -197,6 +217,8 @@ public class SettingsMenuManager : MonoBehaviour
         {
             settingsPanel.SetActive(false);
         }
+
+        HideRebindHints();
     }
 
     public void ShowControlsPanel()
@@ -205,6 +227,9 @@ public class SettingsMenuManager : MonoBehaviour
         {
             return;
         }
+
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlaySelect();
 
         DisableAllSettingsPanels();
         if (controlsPanel != null)
@@ -222,6 +247,9 @@ public class SettingsMenuManager : MonoBehaviour
             return;
         }
 
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlaySelect();
+
         DisableAllSettingsPanels();
         if (displayPanel != null)
         {
@@ -238,6 +266,9 @@ public class SettingsMenuManager : MonoBehaviour
             return;
         }
 
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlaySelect();
+
         DisableAllSettingsPanels();
         if (difficultyPanel != null)
         {
@@ -249,6 +280,8 @@ public class SettingsMenuManager : MonoBehaviour
 
     void RequestBack()
     {
+        if (UISFXManager.Instance != null)
+            UISFXManager.Instance.PlayCancel();
         Close();
 
         if (!isMainMenu && pauseMenuManager != null)
@@ -338,6 +371,11 @@ public class SettingsMenuManager : MonoBehaviour
             return;
         }
 
+        if (isHovering && UISFXManager.Instance != null)
+        {
+            UISFXManager.Instance.PlayHover();
+        }
+
         if (GetActiveTab() == tab)
         {
             return;
@@ -405,5 +443,15 @@ public class SettingsMenuManager : MonoBehaviour
 #else
         return Input.GetKeyDown(KeyCode.Escape);
 #endif
+    }
+
+    void HideRebindHints()
+    {
+        if (rebindHintImage == null)
+        {
+            return;
+        }
+
+        rebindHintImage.enabled = false;
     }
 }

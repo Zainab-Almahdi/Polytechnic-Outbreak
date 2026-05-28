@@ -80,6 +80,7 @@
     <Compile Include="Assets\Characters\Player\Scripts\ItemData.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunsMenu.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerWeaponController.cs" />
+    <Compile Include="Assets\Characters\Player\Scripts\AntidoteManager.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\PlayerController.cs" />
     <Compile Include="Assets\PerkMachine\Script\PlayerShooting.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\CrosshairController.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\UI\Scripts\Main Menu\UISFXManager.cs" />
     <Compile Include="Assets\Enviroment\enviroment\Office building\scripts\Door.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\MenuButton.cs" />
+    <Compile Include="Assets\Characters\Player\Scripts\AntidoteButton.cs" />
     <Compile Include="Assets\Powerup\Scripts\PowerupPickup.cs" />
     <Compile Include="Assets\TextAnimations\IntroSequence.cs" />
     <Compile Include="Assets\UI\Scripts\Settings\DisplayManager.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Assets\Characters\Player\Scripts\WeaponSwitcher.cs" />
     <Compile Include="Assets\Scripts\Player\PerkType.cs" />
     <Compile Include="Assets\Storytelling\Notes\Script\NoteTest.cs" />
+    <Compile Include="Assets\Megapoly.Art\Vintage Controls\Scripts\ButtonLamp.cs" />
     <Compile Include="Assets\Scripts\Player\WeaponData.cs" />
     <Compile Include="Assets\PerkMachine\Script\WeaponSwitcher.cs" />
     <Compile Include="Assets\UI\Scripts\HUD\GamplayUIManager.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="Assets\UI\Scripts\HUD\PauseMenuManager.cs" />
     <Compile Include="Assets\Powerup\Scripts\ZombieDropper.cs" />
     <Compile Include="Assets\Scripts\Player\WeaponInstance.cs" />
+    <Compile Include="Assets\Megapoly.Art\Vintage Controls\Scripts\ControlAnimateLights.cs" />
     <Compile Include="Assets\TextAnimations\ReadableNote.cs" />
     <Compile Include="Assets\Shared\Scripts\FloorDifficultySettings.cs" />
     <Compile Include="Assets\Low Poly Guns\Scripts\GunView.cs" />
@@ -132,6 +136,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
     <Compile Include="Assets\UI\Scripts\HUD\ScreenManager.cs" />
     <Compile Include="Assets\Scripts\AI\ZombieAudio.cs" />
+    <Compile Include="Assets\Megapoly.Art\Vintage Controls\Scripts\Monitor.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\UI\Scripts\Main Menu\LogoFlicker.cs" />
     <Compile Include="Assets\Characters\Player\Scripts\Gun.cs" />

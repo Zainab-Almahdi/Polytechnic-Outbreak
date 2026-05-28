@@ -2,16 +2,12 @@ using UnityEngine;
 
 public class CrosshairController : MonoBehaviour
 {
-    public WeaponSwitcher weaponSwitcher;
     public GameObject crosshairUI;
 
     void Update()
     {
-        if (weaponSwitcher == null)
-            return;
+        Gun gun = FindAnyObjectByType<Gun>();
 
-        bool hasWeapon = weaponSwitcher.HasWeaponEquipped();
-
-        crosshairUI.SetActive(hasWeapon);
+        crosshairUI.SetActive(gun != null && gun.isActiveAndEnabled);
     }
 }

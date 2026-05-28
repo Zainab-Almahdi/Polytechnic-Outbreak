@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a7a3b6ec8384947ba820a138ea4e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muzzlePoint: {fileID: 2404433547487147348}
   playerCamera: {fileID: 0}
   muzzleFlash: {fileID: 0}
   impactEffect: {fileID: 0}

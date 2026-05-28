@@ -75,7 +75,8 @@ public class PlayerCameraLook : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(
             xRotation + recoilOffset.y,
             recoilOffset.x,
-            0f);
+            0f
+ );
         }
         else
         {

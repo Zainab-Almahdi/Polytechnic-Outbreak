@@ -44,6 +44,9 @@ public class Door : MonoBehaviour
                         
                         door.isDoorOpen = true;
 
+                        var obstacle = GetComponent<UnityEngine.AI.NavMeshObstacle>();
+                        if (obstacle != null) obstacle.enabled = false;
+
                         DoorStartUsing = StartCoroutine(OpenDoor(door.OpenValue, door.Door,door.RotationOrigin));
 
 

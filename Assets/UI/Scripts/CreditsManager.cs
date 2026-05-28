@@ -22,6 +22,9 @@ public class CreditsManager : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         if (canvasGroup == null)
             canvasGroup = GetComponentInParent<CanvasGroup>();
 

@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 120.00001
   animator: {fileID: 3684379386514356412}
+  isBoss: 0
 --- !u!195 &1960502368239729151
 NavMeshAgent:
   m_ObjectHideFlags: 0

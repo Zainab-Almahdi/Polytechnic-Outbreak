@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2500
   animator: {fileID: 371218363511993861}
+  isBoss: 1
 --- !u!195 &981439899401993508
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 1.5
-  attackDamage: 30
+  attackDamage: 34
   attackCooldown: 1.5
 --- !u!114 &1544747659167036445
 MonoBehaviour:

@@ -210,6 +210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
   currentHealth: 100
+  regenRate: 20
+  regenDelay: 5
 --- !u!114 &5180642425139929443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a0cb46455e82642ad1ab625596df06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPerks: 10
+  maxPerks: 4
 --- !u!114 &834598034094234284
 MonoBehaviour:
   m_ObjectHideFlags: 0

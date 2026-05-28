@@ -9,10 +9,18 @@ public class ZombieHealth : MonoBehaviour
 
     private ZombieDropper zombieDropper;
 
+    public bool isBoss = false;
+    public static bool BossDead { get; private set; } = false;
+
     void Start()
     {
         currentHealth = maxHealth;
         zombieDropper = GetComponent<ZombieDropper>();
+        
+        if (isBoss)
+        {
+            BossDead = false;
+        }
     }
 
     public void TakeDamage(float amount)
@@ -32,6 +40,11 @@ public class ZombieHealth : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
+        if (isBoss)
+        {
+            BossDead = true;
+        }
+
         animator.SetTrigger("IsDead");
 
         PlayerPoints points = Object.FindFirstObjectByType<PlayerPoints>();
@@ -41,8 +54,9 @@ public class ZombieHealth : MonoBehaviour
         }
 
         if (zombieDropper != null)
-{
+        {
             zombieDropper.OnZombieDeath();
+        }
 
         if (GameManager.Instance != null)
             GameManager.Instance.OnZombieKilled();

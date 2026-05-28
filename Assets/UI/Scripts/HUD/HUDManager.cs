@@ -49,6 +49,38 @@ namespace Assets.UI.Scripts
             {
                 interactTextLabel.gameObject.SetActive(false);
             }
+
+            StartCoroutine(InitialFadeIn());
+        }
+
+        private System.Collections.IEnumerator InitialFadeIn()
+        {
+            // Create a temporary black overlay for the fade-in effect
+            GameObject fadeObj = new GameObject("InitialFadeOverlay");
+            fadeObj.transform.SetParent(this.transform.parent, false); // Parent to 'HUD' or 'Gampelay Canvas'
+            fadeObj.transform.SetAsLastSibling(); // Ensure it's on top
+
+            UnityEngine.UI.Image fadeImage = fadeObj.AddComponent<UnityEngine.UI.Image>();
+            fadeImage.color = Color.black;
+
+            RectTransform rect = fadeImage.GetComponent<RectTransform>();
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = Vector2.one;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+
+            float duration = 2f;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
+                fadeImage.color = new Color(0, 0, 0, alpha);
+                yield return null;
+            }
+
+            Destroy(fadeObj);
         }
 
         public void SetFloorLabel(string value)

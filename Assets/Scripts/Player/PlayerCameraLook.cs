@@ -8,6 +8,9 @@ public class PlayerCameraLook : MonoBehaviour
     [SerializeField] private float lookSensitivityMultiplier = 1f;
     [SerializeField] private float maxPitch = 80f;
     [SerializeField] private bool lockCursor = true;
+    private float recoilOffset;
+    [SerializeField] private float recoilKick = 2f;
+    [SerializeField] private float recoilReturnSpeed = 8f;
 
     private float xRotation;
 
@@ -18,7 +21,7 @@ public class PlayerCameraLook : MonoBehaviour
         inputHandler = GetComponentInParent<PlayerInputHandler>();
 
         if (playerCamera == null)
-{
+        {
             playerCamera = GetComponent<Camera>();
         }
 
@@ -66,7 +69,10 @@ public class PlayerCameraLook : MonoBehaviour
         var mouseX = lookInput.x * lookSensitivityMultiplier;
         var mouseY = lookInput.y * lookSensitivityMultiplier;
 
-        xRotation -= mouseY;
+        recoilOffset = Mathf.Lerp(recoilOffset, 0f, Time.deltaTime * recoilReturnSpeed);
+
+        xRotation -= mouseY + recoilOffset;
+
         xRotation = Mathf.Clamp(xRotation, -maxPitch, maxPitch);
         if (playerCamera != null)
         {
@@ -84,6 +90,16 @@ public class PlayerCameraLook : MonoBehaviour
         else
         {
             transform.Rotate(Vector3.up * mouseX, Space.World);
+        }
+    }
+
+    public void AddRecoil()
+    {
+        recoilOffset += recoilKick;
+
+        if (yawTarget != null)
+        {
+            yawTarget.Rotate(Vector3.up * Random.Range(-0.5f, 0.5f));
         }
     }
 }

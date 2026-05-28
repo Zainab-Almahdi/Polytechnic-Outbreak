@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour
     private PlayerWeapons playerWeapons;
     private WeaponInstance weaponInstance;
 
+    [SerializeField] private Transform muzzlePoint;
+
     public Camera playerCamera;
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
@@ -147,12 +149,16 @@ public class Gun : MonoBehaviour
     }
 
     void Shoot()
-{
-        if (muzzleFlash != null)
-            muzzleFlash.Play();
+    {
+        if (WeaponFXManager.Instance != null)
+        {
+            WeaponFXManager.Instance.PlayMuzzleFlash(muzzlePoint);
+        }
 
-        if (mouseLook != null)
-            mouseLook.AddRecoil();
+        PlayerCameraLook cam = playerCamera.GetComponentInParent<PlayerCameraLook>();
+
+        if (cam != null)
+            cam.AddRecoil();
 
         if (isShotgun)
         {
@@ -212,4 +218,5 @@ public class Gun : MonoBehaviour
         direction += Random.insideUnitSphere * Mathf.Tan(spreadAngle * Mathf.Deg2Rad);
         return direction.normalized;
     }
+
 }

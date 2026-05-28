@@ -155,8 +155,10 @@ public class Gun : MonoBehaviour
             WeaponFXManager.Instance.PlayMuzzleFlash(muzzlePoint);
         }
 
-        if (mouseLook != null)
-            mouseLook.AddRecoil();
+        PlayerCameraLook cam = playerCamera.GetComponentInParent<PlayerCameraLook>();
+
+        if (cam != null)
+            cam.AddRecoil();
 
         if (isShotgun)
         {

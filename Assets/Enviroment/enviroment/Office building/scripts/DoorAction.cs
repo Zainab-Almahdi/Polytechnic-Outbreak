@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,54 +9,44 @@ public class DoorAction : MonoBehaviour {
 
    
 
-    void Update ()
+    private PlayerInputHandler inputHandler;
+
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        inputHandler = GetComponentInParent<PlayerInputHandler>();
+    }
+
+    void Update()
+    {
+        if (inputHandler != null && inputHandler.InteractPressed)
         {
-          
             RaycastHit hit;
+            float interactDistance = 3f;
 
-            Physics.Raycast(transform.position,transform.TransformDirection(Vector3.forward), out hit);
-            
-                
-                if (hit.transform.tag == "door")
+            if (Physics.Raycast(transform.position, transform.forward, out hit, interactDistance))
+            {
+                if (hit.transform.CompareTag("door"))
                 {
-
-                hit.transform.gameObject.GetComponent<Door>().ActionDoor();
-
-
+                    Door door = hit.transform.GetComponent<Door>();
+                    if (door != null)
+                    {
+                        door.ActionDoor();
+                    }
                 }
 
-                if(hit.collider.gameObject.name == "Button floor 1")
+                if (hit.collider.gameObject.name.StartsWith("Button floor"))
                 {
-                hit.transform.gameObject.GetComponent<pass_on_parent>().MyParent.GetComponent<evelator_controll>().AddTaskEve("Button floor 1");
-
+                    pass_on_parent pop = hit.transform.GetComponent<pass_on_parent>();
+                    if (pop != null && pop.MyParent != null)
+                    {
+                        evelator_controll ec = pop.MyParent.GetComponent<evelator_controll>();
+                        if (ec != null)
+                        {
+                            ec.AddTaskEve(hit.collider.gameObject.name);
+                        }
+                    }
+                }
             }
-            if (hit.collider.gameObject.name == "Button floor 2")
-            {
-                hit.transform.gameObject.GetComponent<pass_on_parent>().MyParent.GetComponent<evelator_controll>().AddTaskEve("Button floor 2");
-            }
-            if (hit.collider.gameObject.name == "Button floor 3")
-            {
-                hit.transform.gameObject.GetComponent<pass_on_parent>().MyParent.GetComponent<evelator_controll>().AddTaskEve("Button floor 3");
-            }
-            if (hit.collider.gameObject.name == "Button floor 4")
-            {
-                hit.transform.gameObject.GetComponent<pass_on_parent>().MyParent.GetComponent<evelator_controll>().AddTaskEve("Button floor 4");
-            }
-            if (hit.collider.gameObject.name == "Button floor 5")
-            {
-                hit.transform.gameObject.GetComponent<pass_on_parent>().MyParent.GetComponent<evelator_controll>().AddTaskEve("Button floor 5");
-            }
-            if (hit.collider.gameObject.name == "Button floor 6")
-            {
-                hit.transform.gameObject.GetComponent<pass_on_parent>().MyParent.GetComponent<evelator_controll>().AddTaskEve("Button floor 6");
-            }
-
-
-
         }
-
-		
-	}
+    }
 }

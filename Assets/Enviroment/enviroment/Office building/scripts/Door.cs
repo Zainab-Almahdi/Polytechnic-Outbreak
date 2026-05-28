@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,11 +23,8 @@ public class Door : MonoBehaviour
     }
    
     public List<DoorGet> UseDoors = new List<DoorGet>();
-
-
-   public bool door_in_use;
-
-
+    public bool door_in_use;
+    public bool canBeOpened = false;
 
     public void MoveMyDoor()
     {
@@ -75,19 +72,13 @@ public class Door : MonoBehaviour
 
         public void ActionDoor()
         {
+            if (!canBeOpened) return;
 
-
-
-        foreach (var door in UseDoors)
-        {
-           
-            door.Door.GetComponent<Door>().MoveMyDoor();
-
+            foreach (var door in UseDoors)
+            {
+                door.Door.GetComponent<Door>().MoveMyDoor();
+            }
         }
-
-
-        } 
-
 
     
 

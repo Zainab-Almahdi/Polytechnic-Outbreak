@@ -14,6 +14,7 @@ public class WeaponInstance
     public float HeadshotMultiplier;
     public float Range;
     public float ReloadSpeedSeconds;
+    public bool ReloadPerShell;
     public int MagazineSize;
     public int ReserveAmmo;
     public bool IsBurstWeapon;
@@ -52,6 +53,7 @@ public class WeaponInstance
         HeadshotMultiplier = data.HeadshotMultiplier;
         Range = data.Range;
         ReloadSpeedSeconds = data.ReloadSpeedSeconds;
+        ReloadPerShell = data.ReloadPerShell;
         MagazineSize = data.MagazineSize;
         ReserveAmmo = data.ReserveAmmo;
         IsBurstWeapon = data.IsBurstWeapon;
@@ -83,6 +85,7 @@ public class WeaponInstance
         HeadshotMultiplier = gun.headshotMultiplier;
         Range = gun.range;
         ReloadSpeedSeconds = gun.reloadTime;
+        ReloadPerShell = gun.reloadPerShell;
         MagazineSize = gun.magazineSize;
         ReserveAmmo = gun.reserveAmmo;
         IsBurstWeapon = gun.isBurstWeapon;
@@ -94,7 +97,11 @@ public class WeaponInstance
         if (gun.fireRate > 0f)
         {
             FireRateRpm = Mathf.RoundToInt(60f / gun.fireRate);
-            BurstFireRateRpm = FireRateRpm;
+        }
+
+        if (gun.burstFireRate > 0f)
+        {
+            BurstFireRateRpm = Mathf.RoundToInt(60f / gun.burstFireRate);
         }
 
         CurrentMagazineAmmo = MagazineSize;

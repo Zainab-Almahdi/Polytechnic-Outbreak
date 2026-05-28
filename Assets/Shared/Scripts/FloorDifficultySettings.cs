@@ -1,5 +1,8 @@
 using UnityEngine;
 
+using System.Collections.Generic;
+using UnityEngine;
+
 [System.Serializable]
 public class FloorDifficultySettings
 {
@@ -8,4 +11,7 @@ public class FloorDifficultySettings
 
     [Header("Max zombies per spawner on this floor")]
     public int maxZombies = 3;
+
+    [Header("Zombies that can spawn on this floor")]
+    public List<GameObject> zombiePrefabs;
 }

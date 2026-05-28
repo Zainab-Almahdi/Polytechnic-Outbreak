@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
+    public string displayName;
     private MouseLook mouseLook;
     private PlayerInputHandler inputHandler;
     private PlayerWeapons playerWeapons;
@@ -87,6 +88,7 @@ public class Gun : MonoBehaviour
         }
 
         // FIRE
+        float actualFireRate = fireRate * (playerWeapons != null ? playerWeapons.GetFireRateMultiplier() : 1f);
         if (inputHandler.ShootPressed && Time.time >= nextTimeToFire)
         {
             if (weaponInstance.CurrentMagazineAmmo <= 0)
@@ -95,7 +97,7 @@ public class Gun : MonoBehaviour
                 return;
             }
 
-            nextTimeToFire = Time.time + fireRate;
+            nextTimeToFire = Time.time + actualFireRate;
 
             if (isBurstWeapon)
                 StartCoroutine(BurstFire());
@@ -114,10 +116,11 @@ public class Gun : MonoBehaviour
 
         isReloading = true;
 
-        yield return new WaitForSeconds(reloadTime);
+        float actualReloadTime = reloadTime * (playerWeapons != null ? playerWeapons.GetReloadSpeedMultiplier() : 1f);
+        yield return new WaitForSeconds(actualReloadTime);
 
         int ammoNeeded = weaponInstance.MagazineSize - weaponInstance.CurrentMagazineAmmo;
-        int ammoToLoad = Mathf.Min(ammoNeeded, weaponInstance.CurrentReserveAmmo);
+int ammoToLoad = Mathf.Min(ammoNeeded, weaponInstance.CurrentReserveAmmo);
 
         weaponInstance.CurrentMagazineAmmo += ammoToLoad;
         weaponInstance.CurrentReserveAmmo -= ammoToLoad;
@@ -129,6 +132,7 @@ public class Gun : MonoBehaviour
 
     IEnumerator BurstFire()
     {
+        float burstInterval = 0.08f * (playerWeapons != null ? playerWeapons.GetFireRateMultiplier() : 1f);
         for (int i = 0; i < burstCount; i++)
         {
             if (weaponInstance.CurrentMagazineAmmo <= 0)
@@ -136,7 +140,7 @@ public class Gun : MonoBehaviour
 
             Shoot();
             ConsumeAmmo();
-            yield return new WaitForSeconds(0.08f);
+            yield return new WaitForSeconds(burstInterval);
         }
     }
 

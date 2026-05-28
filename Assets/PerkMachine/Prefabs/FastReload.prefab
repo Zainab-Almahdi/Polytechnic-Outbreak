@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 7870050149666498193}
   - component: {fileID: 7674086486482048889}
   - component: {fileID: 3977078267286263493}
+  - component: {fileID: 6286268388325401039}
   m_Layer: 0
   m_Name: FastReload
   m_TagString: Untagged
@@ -441,7 +442,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8752370387073683197}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7264615, y: 0.033115458, z: 0.031257212, w: 0.6856968}
+  m_LocalRotation: {x: -0.74837726, y: 0, z: 0, w: 0.6632734}
   m_LocalPosition: {x: -2.7699995, y: 1.1199999, z: 7.01}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 0
@@ -449,7 +450,7 @@ Transform:
   - {fileID: 9028784087893650968}
   - {fileID: 8940674368452166106}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -93.307, y: 0, z: 5.220001}
+  m_LocalEulerAnglesHint: {x: -96.9, y: 0, z: 0}
 --- !u!65 &2068054963480058693
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -469,8 +470,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 120, y: 120, z: 100}
-  m_Center: {x: -10, y: 0, z: 30}
+  m_Size: {x: 72.2, y: 71.5, z: 75}
+  m_Center: {x: -9.18, y: 24.99, z: 30.2}
 --- !u!82 &7870050149666498193
 AudioSource:
   m_ObjectHideFlags: 0
@@ -587,8 +588,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 70, y: 90, z: 90}
-  m_Center: {x: -10, y: 0, z: 29}
+  m_Size: {x: 54.6, y: 52.1, z: 102.7}
+  m_Center: {x: -9, y: -4.74, z: 25.6}
 --- !u!114 &3977078267286263493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,11 +602,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dccbed0bc5327d46b98c79730955b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perkCost: 2500
-  perkType: 2
-  promptText: {fileID: 5348627410322930808}
+  perkCost: 3000
+  perkType: 1
+  perkName: Speed Cola
   buySound: {fileID: 7870050149666498193}
-  playerNearby: 0
-  player: {fileID: 0}
-  playerPoints: {fileID: 0}
-  hasBeenPurchased: 0
+--- !u!114 &6286268388325401039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8752370387073683197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4443db4957ade541be387cad988ce23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 3
+  itemName: Speed Cola
+  cost: 3000

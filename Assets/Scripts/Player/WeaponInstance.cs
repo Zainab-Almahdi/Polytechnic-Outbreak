@@ -71,7 +71,14 @@ public class WeaponInstance
             return;
         }
 
-        WeaponName = string.IsNullOrWhiteSpace(weaponName) ? gun.name : weaponName;
+        string displayName = string.IsNullOrWhiteSpace(gun.displayName)
+            ? null
+            : gun.displayName;
+        WeaponName = !string.IsNullOrWhiteSpace(displayName)
+            ? displayName
+            : string.IsNullOrWhiteSpace(weaponName)
+                ? gun.name
+                : weaponName;
         Damage = gun.damage;
         HeadshotMultiplier = gun.headshotMultiplier;
         Range = gun.range;

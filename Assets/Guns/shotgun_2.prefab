@@ -4957,20 +4957,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a7a3b6ec8384947ba820a138ea4e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: XM1014
   playerCamera: {fileID: 0}
   muzzleFlash: {fileID: 5627150572863772696}
   impactEffect: {fileID: 4344764001660639419}
-  damage: 25
+  damage: 12
   headshotMultiplier: 2
-  range: 100
-  fireRate: 0.1
-  magazineSize: 30
-  reserveAmmo: 210
-  reloadTime: 2.5
+  range: 7
+  fireRate: 0.35
+  magazineSize: 7
+  reserveAmmo: 35
+  reloadTime: 2.4
   isBurstWeapon: 0
   burstCount: 3
-  isShotgun: 0
-  pelletCount: 8
+  isShotgun: 1
+  pelletCount: 6
   spreadAngle: 5
 --- !u!114 &7747256464116896092
 MonoBehaviour:

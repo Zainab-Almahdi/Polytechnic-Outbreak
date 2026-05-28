@@ -4957,16 +4957,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a7a3b6ec8384947ba820a138ea4e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Deagle
   playerCamera: {fileID: 0}
   muzzleFlash: {fileID: 5627150572863772696}
   impactEffect: {fileID: 4344764001660639419}
-  damage: 25
-  headshotMultiplier: 2
+  damage: 53
+  headshotMultiplier: 4
   range: 100
-  fireRate: 0.1
-  magazineSize: 30
-  reserveAmmo: 210
-  reloadTime: 2.5
+  fireRate: 0.225
+  magazineSize: 7
+  reserveAmmo: 35
+  reloadTime: 2.2
   isBurstWeapon: 0
   burstCount: 3
   isShotgun: 0

@@ -22,9 +22,13 @@ public class MysteryBox : MonoBehaviour
 
     [Header("Weapon Spawn")]
     [SerializeField] private Transform weaponSpawnPoint; 
+    [SerializeField] private Vector3 weaponPreviewRotationOffset;
 
     [Header("Chance")]
     [SerializeField] private int emptyChance = 10; 
+
+    [Header("Pickup Timeout")]
+    [SerializeField] private float pickupTimeoutSeconds = 10f;
 
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource; 
@@ -46,6 +50,7 @@ public class MysteryBox : MonoBehaviour
     private Player currentPlayer;
     private GameObject currentSpawnedWeapon;
     private GameObject selectedWeaponPrefab;
+    private Coroutine pickupTimeoutRoutine;
 
     private void Start()
     {
@@ -87,7 +92,14 @@ public class MysteryBox : MonoBehaviour
                 message = $"Press E to use Mystery Box [Cost: {rollCost}]";
                 break;
             case BoxState.ReadyToPickup:
-                string weaponName = selectedWeaponPrefab != null ? selectedWeaponPrefab.name : "Weapon";
+                string weaponName = "Weapon";
+                if (selectedWeaponPrefab != null)
+                {
+                    var gun = selectedWeaponPrefab.GetComponent<Gun>();
+                    weaponName = gun != null && !string.IsNullOrWhiteSpace(gun.displayName)
+                        ? gun.displayName
+                        : selectedWeaponPrefab.name;
+                }
                 // Clean up name if it has (Clone) or gun_ prefix
                 weaponName = weaponName.Replace("gun_", "").Replace("(Clone)", "").Trim();
                 message = $"Hold E to get {weaponName}";
@@ -146,6 +158,8 @@ public class MysteryBox : MonoBehaviour
             {
                 if (currentSpawnedWeapon != null) Destroy(currentSpawnedWeapon);
                 currentSpawnedWeapon = Instantiate(weapons[idx], weaponSpawnPoint.position, weaponSpawnPoint.rotation);
+                currentSpawnedWeapon.transform.rotation = weaponSpawnPoint.rotation * Quaternion.Euler(weaponPreviewRotationOffset);
+                currentSpawnedWeapon.transform.localScale = Vector3.one * 0.2f;
                 
                 // Disable Gun and WeaponSway on preview
                 var gun = currentSpawnedWeapon.GetComponent<Gun>();
@@ -168,6 +182,7 @@ public class MysteryBox : MonoBehaviour
         {
             currentState = BoxState.ReadyToPickup;
             selectedWeaponPrefab = weapons[lastIdx];
+            StartPickupTimeout();
         }
     }
 
@@ -215,11 +230,52 @@ public class MysteryBox : MonoBehaviour
         if (currentSpawnedWeapon != null) Destroy(currentSpawnedWeapon);
         currentState = BoxState.ReadyToRoll;
         if (boxLight != null) boxLight.SetActive(false);
+        StopPickupTimeout();
         
         if (HUDManager.Instance != null)
         {
             HUDManager.Instance.SetInteractText("", false);
         }
+    }
+
+    private void StartPickupTimeout()
+    {
+        StopPickupTimeout();
+        pickupTimeoutRoutine = StartCoroutine(PickupTimeoutRoutine());
+    }
+
+    private void StopPickupTimeout()
+    {
+        if (pickupTimeoutRoutine != null)
+        {
+            StopCoroutine(pickupTimeoutRoutine);
+            pickupTimeoutRoutine = null;
+        }
+    }
+
+    private IEnumerator PickupTimeoutRoutine()
+    {
+        yield return new WaitForSeconds(pickupTimeoutSeconds);
+
+        if (currentState != BoxState.ReadyToPickup)
+        {
+            pickupTimeoutRoutine = null;
+            yield break;
+        }
+
+        if (currentSpawnedWeapon != null)
+        {
+            Destroy(currentSpawnedWeapon);
+        }
+
+        currentState = BoxState.ReadyToRoll;
+        if (boxLight != null) boxLight.SetActive(false);
+        if (HUDManager.Instance != null)
+        {
+            HUDManager.Instance.SetInteractText("", false);
+        }
+
+        pickupTimeoutRoutine = null;
     }
 
     private void OnTriggerEnter(Collider other)

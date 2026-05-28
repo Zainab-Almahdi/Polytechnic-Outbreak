@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rigidbodyComponent;
     private Vector3 pendingMove;
     private float verticalVelocity;
+    private Animator animator;
 
     // Movement speed reads perk modifiers directly for sprint bonuses.
     public float CurrentSpeed => IsSprinting
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         inputHandler = GetComponent<PlayerInputHandler>();
         characterController = GetComponent<CharacterController>();
         rigidbodyComponent = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
 
         if (moveReference == null)
         {
@@ -45,6 +47,14 @@ public class PlayerMovement : MonoBehaviour
         right.Normalize();
         var move = forward * moveInput.y + right * moveInput.x;
         var velocity = move * CurrentSpeed;
+
+        if (animator != null)
+        {
+            float targetSpeed = move.magnitude;
+            if (IsSprinting && targetSpeed > 0) targetSpeed = 1f;
+            else if (targetSpeed > 0) targetSpeed = 0.5f;
+            animator.SetFloat("Speed", targetSpeed, 0.1f, Time.deltaTime);
+        }
 
         if (characterController != null)
         {

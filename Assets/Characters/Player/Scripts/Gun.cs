@@ -216,4 +216,5 @@ public class Gun : MonoBehaviour
         direction += Random.insideUnitSphere * Mathf.Tan(spreadAngle * Mathf.Deg2Rad);
         return direction.normalized;
     }
+
 }

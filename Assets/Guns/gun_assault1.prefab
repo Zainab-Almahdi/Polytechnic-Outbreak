@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzlePoint: {fileID: 2404433547487147348}
+  crosshairUI: {fileID: 0}
   playerCamera: {fileID: 0}
-  muzzleFlash: {fileID: 1207214770058997435, guid: 7dd776014301e3246860f20ca68324ff, type: 3}
+  muzzleFlash: {fileID: 8445252274675463694}
   impactEffect: {fileID: 0}
   damage: 25
   headshotMultiplier: 2
@@ -212,5 +213,10 @@ PrefabInstance:
 --- !u!4 &3866550609787164844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5790446141514481689, guid: 7dd776014301e3246860f20ca68324ff, type: 3}
+  m_PrefabInstance: {fileID: 7346342260951193781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8445252274675463694 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1207214770058997435, guid: 7dd776014301e3246860f20ca68324ff, type: 3}
   m_PrefabInstance: {fileID: 7346342260951193781}
   m_PrefabAsset: {fileID: 0}

@@ -10,9 +10,9 @@ public enum InteractionType
 
 public class InteractionPrompt : MonoBehaviour
 {
-    [SerializeField] private InteractionType interactionType;
-    [SerializeField] private string itemName;
-    [SerializeField] private int cost;
+    public InteractionType interactionType;
+    public string itemName;
+    public int cost;
 
     public string GetPromptText()
     {

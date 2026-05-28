@@ -72,13 +72,9 @@ public class PlayerWeapons : MonoBehaviour
 
         ownedWeapons.Add(weaponInstance);
         EnsureSpawned(weaponInstance);
-        if (ownedWeapons.Count == 1)
-        {
-            SetEquippedWeapon(0);
-            return true;
-        }
-
-        NotifyAmmoChanged();
+        
+        // Equip the newly added weapon
+        SetEquippedWeapon(ownedWeapons.Count - 1);
 
         return true;
     }
@@ -147,6 +143,11 @@ public class PlayerWeapons : MonoBehaviour
         return perks != null ? perks.ReloadSpeedMultiplier : 1f;
     }
 
+    public float GetFireRateMultiplier()
+    {
+        return perks != null ? perks.FireRateMultiplier : 1f;
+    }
+
     public bool RefillEquippedWeaponAmmo()
     {
         var weapon = GetEquippedWeapon();
@@ -176,6 +177,31 @@ public class PlayerWeapons : MonoBehaviour
         }
 
         AmmoChanged?.Invoke(weapon.CurrentMagazineAmmo, weapon.CurrentReserveAmmo);
+    }
+
+    public bool HasWeapon(GameObject prefab)
+    {
+        if (prefab == null) return false;
+        foreach (var weapon in ownedWeapons)
+        {
+            if (weapon.Prefab == prefab) return true;
+        }
+        return false;
+    }
+
+    public bool RefillWeaponAmmo(GameObject prefab)
+    {
+        foreach (var weapon in ownedWeapons)
+        {
+            if (weapon.Prefab == prefab)
+            {
+                weapon.CurrentMagazineAmmo = weapon.MagazineSize;
+                weapon.CurrentReserveAmmo = weapon.ReserveAmmo;
+                NotifyAmmoChanged();
+                return true;
+            }
+        }
+        return false;
     }
 
     private void SetEquippedWeapon(int index)
@@ -215,6 +241,7 @@ public class PlayerWeapons : MonoBehaviour
         weaponInstance.SpawnedObject = Instantiate(weaponInstance.Prefab, parent);
         weaponInstance.SpawnedObject.transform.localPosition = Vector3.zero;
         weaponInstance.SpawnedObject.transform.localRotation = Quaternion.identity;
+        weaponInstance.SpawnedObject.transform.localScale = Vector3.one * 0.2f;
         weaponInstance.SpawnedObject.SetActive(false);
 
         var gun = weaponInstance.SpawnedObject.GetComponent<Gun>();

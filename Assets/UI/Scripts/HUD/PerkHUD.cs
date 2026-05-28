@@ -14,6 +14,9 @@ namespace Assets.UI.Scripts
             public Sprite Icon;
         }
 
+        [Header("Container")]
+        [SerializeField] private GameObject perksContainer;
+
         [Header("Slots")]
         [SerializeField] private List<Image> perkSlots = new();
 
@@ -37,7 +40,10 @@ namespace Assets.UI.Scripts
                 }
             }
 
-            SetSlotsVisible(false);
+            if (perksContainer == null && perkSlots.Count > 0 && perkSlots[0] != null)
+            {
+                perksContainer = perkSlots[0].transform.parent.gameObject;
+            }
         }
 
         private void OnEnable()
@@ -49,6 +55,7 @@ namespace Assets.UI.Scripts
 
             if (playerPerks == null)
             {
+                Debug.LogWarning("[PerkHUD] PlayerPerks dependency not found.");
                 return;
             }
 
@@ -84,6 +91,7 @@ namespace Assets.UI.Scripts
 
         private void HandlePerkAdded(PerkType perk)
         {
+            Debug.Log($"[PerkHUD] Perk added: {perk}");
             if (orderedPerks.Contains(perk))
             {
                 return;
@@ -109,12 +117,19 @@ namespace Assets.UI.Scripts
 
         private void RefreshSlots()
         {
+            bool hasPerks = orderedPerks.Count > 0;
+            if (perksContainer != null)
+            {
+                perksContainer.SetActive(hasPerks);
+            }
+
             for (var i = 0; i < perkSlots.Count; i++)
             {
                 if (i < orderedPerks.Count && iconLookup.TryGetValue(orderedPerks[i], out var icon))
                 {
                     perkSlots[i].sprite = icon;
                     perkSlots[i].gameObject.SetActive(true);
+                    Debug.Log($"[PerkHUD] Slot {i} set to {orderedPerks[i]}");
                 }
                 else
                 {

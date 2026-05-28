@@ -207,10 +207,10 @@ MonoBehaviour:
   damage: 25
   headshotMultiplier: 2
   range: 100
-  fireRate: 0.1
-  magazineSize: 30
-  reserveAmmo: 210
-  reloadTime: 2.5
+  fireRate: 0.225
+  magazineSize: 7
+  reserveAmmo: 35
+  reloadTime: 2.2
   isBurstWeapon: 0
   burstCount: 3
   isShotgun: 0

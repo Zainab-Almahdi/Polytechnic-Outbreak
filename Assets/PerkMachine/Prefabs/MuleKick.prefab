@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 5023643367789597300}
   - component: {fileID: 4004898324223481636}
   - component: {fileID: 7035566685761552365}
+  - component: {fileID: 2330387967014505222}
   m_Layer: 0
   m_Name: MuleKick
   m_TagString: Untagged
@@ -535,8 +536,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 400, y: 500, z: 400}
-  m_Center: {x: 0, y: -140, z: 0}
+  m_Size: {x: 240.5, y: 265.9, z: 254.1}
+  m_Center: {x: 0, y: -144.6, z: -71.94}
 --- !u!65 &5023643367789597300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -556,8 +557,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 200, y: 400, z: 300}
-  m_Center: {x: 0, y: -140, z: 0}
+  m_Size: {x: 167.8, y: 247, z: 93.2}
+  m_Center: {x: 5.7, y: -144.6, z: -44}
 --- !u!114 &4004898324223481636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,14 +571,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dccbed0bc5327d46b98c79730955b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perkCost: 2500
-  perkType: 2
-  promptText: {fileID: 4240182982972730520}
+  perkCost: 4000
+  perkType: 3
+  perkName: Mule Kick
   buySound: {fileID: 7035566685761552365}
-  playerNearby: 0
-  player: {fileID: 0}
-  playerPoints: {fileID: 0}
-  hasBeenPurchased: 0
 --- !u!82 &7035566685761552365
 AudioSource:
   m_ObjectHideFlags: 0
@@ -675,6 +672,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2330387967014505222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7527476026992559886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4443db4957ade541be387cad988ce23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 3
+  itemName: Mule Kick
+  cost: 4000
 --- !u!1 &8685203669330029751
 GameObject:
   m_ObjectHideFlags: 0

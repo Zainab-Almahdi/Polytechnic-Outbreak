@@ -489,6 +489,7 @@ GameObject:
   - component: {fileID: 1422387555911677571}
   - component: {fileID: 1524071968962758559}
   - component: {fileID: 8884477181623240744}
+  - component: {fileID: 6563363875378221014}
   m_Layer: 0
   m_Name: DoubleTap
   m_TagString: Untagged
@@ -504,7 +505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6531407056996026806}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.004720998, y: 0.70709115, z: 0.707091, w: 0.004720999}
+  m_LocalRotation: {x: -0.004720583, y: 0.70709103, z: 0.70709103, w: 0.004720583}
   m_LocalPosition: {x: -10.87, y: 0.7, z: 7.38}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
@@ -525,14 +526,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dccbed0bc5327d46b98c79730955b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perkCost: 2500
-  perkType: 2
-  promptText: {fileID: 7345178520833786170}
+  perkCost: 2000
+  perkType: 5
+  perkName: Double Tap
   buySound: {fileID: 1422387555911677571}
-  playerNearby: 0
-  player: {fileID: 0}
-  playerPoints: {fileID: 0}
-  hasBeenPurchased: 0
 --- !u!82 &1422387555911677571
 AudioSource:
   m_ObjectHideFlags: 0
@@ -645,12 +642,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2.5}
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Size: {x: 2.61, y: 2.65, z: 1.55}
+  m_Center: {x: -0.1, y: -0.78, z: 1.11}
 --- !u!65 &8884477181623240744
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -666,12 +663,27 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Size: {x: 1.28, y: 0.75, z: 2.1}
+  m_Center: {x: 0, y: 0, z: 0.95}
+--- !u!114 &6563363875378221014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6531407056996026806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4443db4957ade541be387cad988ce23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 3
+  itemName: Double Tap
+  cost: 2000
 --- !u!1 &7345178520833786170
 GameObject:
   m_ObjectHideFlags: 0

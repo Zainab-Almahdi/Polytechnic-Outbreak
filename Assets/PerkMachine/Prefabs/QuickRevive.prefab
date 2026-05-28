@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 5609281709303883377}
   - component: {fileID: 1309978650274329944}
   - component: {fileID: 6663396034859160179}
+  - component: {fileID: 7758223432326150677}
   m_Layer: 0
   m_Name: QuickRevive
   m_TagString: Untagged
@@ -204,7 +205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3450909773758654896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.4905811, y: -0.50845456, z: -0.5064389, w: 0.49429128}
+  m_LocalRotation: {x: -0.4905879, y: -0.5084506, z: -0.5064416, w: 0.49428588}
   m_LocalPosition: {x: -6.42, y: 0.8187661, z: 7.3856854}
   m_LocalScale: {x: 0.028, y: 0.028, z: 0.028}
   m_ConstrainProportionsScale: 0
@@ -225,14 +226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dccbed0bc5327d46b98c79730955b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  perkCost: 2500
-  perkType: 2
-  promptText: {fileID: 2523332951336606955}
+  perkCost: 1500
+  perkType: 4
+  perkName: Quick Revive
   buySound: {fileID: 5609281709303883377}
-  playerNearby: 0
-  player: {fileID: 0}
-  playerPoints: {fileID: 0}
-  hasBeenPurchased: 0
 --- !u!82 &5609281709303883377
 AudioSource:
   m_ObjectHideFlags: 0
@@ -349,8 +346,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 70, y: 70, z: 70}
-  m_Center: {x: 0, y: 0, z: 30}
+  m_Size: {x: 85.5, y: 81.04, z: 75}
+  m_Center: {x: 0, y: 0, z: 35}
 --- !u!65 &6663396034859160179
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -370,8 +367,23 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 60, y: 60, z: 90}
-  m_Center: {x: 0, y: 0, z: 30}
+  m_Size: {x: 49.5, y: 66.1, z: 53}
+  m_Center: {x: 0, y: 0, z: 28}
+--- !u!114 &7758223432326150677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450909773758654896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4443db4957ade541be387cad988ce23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 3
+  itemName: Quick Revive
+  cost: 1500
 --- !u!1 &5195535226907508226
 GameObject:
   m_ObjectHideFlags: 0

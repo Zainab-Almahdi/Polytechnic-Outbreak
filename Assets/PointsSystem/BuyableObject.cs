@@ -40,7 +40,7 @@ public class BuyableObject : MonoBehaviour
 
     private string GetPromptText()
     {
-        // Using same "presets" as InteractionPrompt.cs
+        // Using same presets as InteractionPrompt.cs
         return interactionType switch
         {
             InteractionType.BuyWeapon => $"Hold E to buy {objectName} weapon for [Cost: {cost}]",
@@ -54,7 +54,34 @@ public class BuyableObject : MonoBehaviour
     private void AttemptPurchase()
     {
         var points = currentPlayer.GetComponent<PlayerPoints>();
-        if (points != null && points.SpendPoints(cost))
+        if (points == null) return;
+
+        if (interactionType == InteractionType.BuyWeapon)
+        {
+            var weapons = currentPlayer.GetComponent<PlayerWeapons>();
+            if (weapons == null) return;
+
+            if (weapons.HasWeapon(objectToPurchase))
+            {
+                if (points.SpendPoints(cost))
+                {
+                    weapons.RefillWeaponAmmo(objectToPurchase);
+                }
+            }
+            else if (weapons.OwnedWeapons.Count < weapons.MaxWeaponsOwned)
+            {
+                if (points.SpendPoints(cost))
+                {
+                    weapons.TryAddWeapon(objectToPurchase);
+                }
+            }
+            else
+            {
+                Debug.Log("Inventory full!");
+                return;
+            }
+        }
+        else if (points.SpendPoints(cost))
         {
             if (objectToPurchase != null)
             {
@@ -69,10 +96,6 @@ public class BuyableObject : MonoBehaviour
                 }
                 gameObject.SetActive(false);
             }
-        }
-        else
-        {
-            Debug.Log("Not enough points!");
         }
     }
 

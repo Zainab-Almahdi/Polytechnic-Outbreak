@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 5403013228721822036}
   - component: {fileID: 2309268224182126838}
   - component: {fileID: 1246739933727083993}
+  - component: {fileID: 3562103007075857937}
   m_Layer: 0
   m_Name: _MysteryBox (1) 1
   m_TagString: Untagged
@@ -163,8 +164,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.974267, y: 0, z: 0.796597}
-  m_Center: {x: -7.0517497, y: 0.5, z: -5.9702587}
+  m_Size: {x: 1.49, y: 0.76, z: 0.96}
+  m_Center: {x: -7.07, y: -0.25, z: -5.72}
 --- !u!114 &5403013228721822036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,22 +178,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd4851eaf14d59b4eb9e7ce6f891f2fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  rollCost: 950
   weapons:
-  - {fileID: 8219377673546889728, guid: 9ac64180b7e0fb64aa345362575432b1, type: 3}
-  - {fileID: 6403921787348049476, guid: f31ee3c1a4693464dbf12c595b12eb05, type: 3}
-  - {fileID: 1130456501820898196, guid: 2291ef551fc9ce047a7bcef35902fd39, type: 3}
-  - {fileID: 5284391787081677655, guid: ac115c404b1122647b9ef4771d7eeafb, type: 3}
-  - {fileID: 2719041296410865887, guid: 240dc6aa0a37e464ea247cc0d0f7bf2a, type: 3}
+  - {fileID: 6539183219932065969, guid: 1c1d2fcdaddcaeb4da51abe2239bae1c, type: 3}
+  - {fileID: 6539183219932065969, guid: e9a08ed5de235064d9f8c46c8588d984, type: 3}
+  - {fileID: 6539183219932065969, guid: 13b95622d31eca34ea6d8a40b9a4c234, type: 3}
+  - {fileID: 6539183219932065969, guid: 38e300bd7202c5547906580ddffca148, type: 3}
+  - {fileID: 6539183219932065969, guid: e9d80667c15f6cf4ba1318c589cee812, type: 3}
+  - {fileID: 6539183219932065969, guid: f15b4ee08af5bee40b9d9d2294b72939, type: 3}
+  - {fileID: 6539183219932065969, guid: d014c827980d9bc4d9ce6ade17c7126b, type: 3}
+  - {fileID: 6539183219932065969, guid: a81d4cd69110ec548bd5129f2a8ab4b6, type: 3}
+  - {fileID: 6539183219932065969, guid: c5bd0a3963040d7468b3249b47a0cd26, type: 3}
+  rollDuration: 3
   lid: {fileID: 2324372029055872989}
   lidOpenAngle: -80
   lidOpenSpeed: 2
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnPoints: []
   weaponSpawnPoint: {fileID: 4296280015609439034}
-  emptyChance: 20
+  weaponPreviewRotationOffset: {x: 0, y: -90, z: 90}
+  emptyChance: 0
+  pickupTimeoutSeconds: 8
   audioSource: {fileID: 2309268224182126838}
   openSound: {fileID: 8300000, guid: 7f353dc3f1e645347988e3b711494911, type: 3}
   emptySound: {fileID: 8300000, guid: 499309458edff874c9de3bf83f4a3dc9, type: 3}
@@ -318,6 +324,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &3562103007075857937
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945839994382868978}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.16, y: 1.53, z: 0.39}
+  m_Center: {x: -7.07, y: 0.02, z: -5.99}
 --- !u!1 &1313725841678381208
 GameObject:
   m_ObjectHideFlags: 0
@@ -5962,7 +5989,7 @@ Transform:
   m_GameObject: {fileID: 7339251087888438319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0107, y: 0.035, z: -0.0088}
+  m_LocalPosition: {x: -1.0123, y: 0.0343, z: -0.0088}
   m_LocalScale: {x: 1, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10982,7 +11009,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.17009473, y: 0.0487663, z: 1}
   m_Center: {x: -1.0171541, y: 0.027857786, z: -4.8206154e-17}

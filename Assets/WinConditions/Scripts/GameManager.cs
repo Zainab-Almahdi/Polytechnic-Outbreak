@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     public bool AllZombiesDead() => zombiesRemaining <= 0;
 
-    private void OnPlayerDied()
+    public void OnPlayerDied()
     {
         if (gameEnded) return;
         EndGame(false);

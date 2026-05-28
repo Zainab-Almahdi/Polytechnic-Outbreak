@@ -49,12 +49,6 @@ namespace Assets.UI.Scripts
             {
                 interactTextLabel.gameObject.SetActive(false);
             }
-
-            if (PerksContainer != null)
-            {
-                PerksContainer.SetActive(false);
-            }
-
         }
 
         public void SetFloorLabel(string value)

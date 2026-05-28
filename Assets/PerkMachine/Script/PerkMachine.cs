@@ -2,104 +2,73 @@ using UnityEngine;
 
 public class PerkMachine : MonoBehaviour
 {
-    [SerializeField] public int perkCost = 2500;
-    [SerializeField] private PerkType perkType = PerkType.HealthIncrease;
-    [SerializeField] public GameObject promptText;
-    [SerializeField] public AudioSource buySound;
-    [SerializeField] private bool playerNearby = false;
-    [SerializeField] private GameObject player;
-    [SerializeField] private PlayerPoints playerPoints;
-    [SerializeField] private bool hasBeenPurchased = false;
+    public int perkCost = 2500;
+    public PerkType perkType = PerkType.HealthIncrease;
+    public string perkName = "Perk";
+    public AudioSource buySound;
 
-//    private float startDelay = 1f;
+    private bool playerNearby = false;
+    private GameObject player;
+    private PlayerPoints playerPoints;
+    private PlayerPerks playerPerks;
+    private PlayerInputHandler playerInput;
 
-//    void Update()
-//    {
-//        if (playerNearby && Input.GetKeyDown(KeyCode.E))
-//        {
-//            if (player != null && Vector3.Distance(transform.position, player.transform.position) < 3f)
-//            {
-//                BuyPerk();
-//            }
-//            else
-//            {
-//                playerNearby = false;
-//                if (promptText != null) promptText.SetActive(false);
-//            }
-//        }
-//    }
-
-    void BuyPerk()
+    private void Update()
     {
-        if (hasBeenPurchased)
+        if (playerNearby && playerInput != null && playerInput.InteractPressed)
         {
-            Debug.Log("Already bought " + perkType + "!");
-            return;
-        }
-
-        if (playerPoints == null || !playerPoints.SpendPoints(perkCost))
-        {
-            Debug.Log("Need " + perkCost + " points to buy " + perkType);
-            return;
-        }
-
-//        hasBeenPurchased = true;
-
-        Debug.Log("Bought " + perkType + " perk!");
-
-//        if (buySound != null)
-//        {
-//            buySound.Play();
-//        }
-
-        // Apply perk effects via the perk system for modular modifiers.
-        var perkSystem = player.GetComponent<PlayerPerks>();
-        if (perkSystem != null)
-        {
-            if (perkSystem.TryAddPerk(perkType))
-            {
-                Debug.Log($"{perkType}: Perk added.");
-            }
-            else
-            {
-                Debug.Log($"{perkType}: Perk already owned or perk limit reached.");
-            }
-        }
-
-//        // Hide prompt
-//        if (promptText != null) promptText.SetActive(false);
-      
-//        Collider[] colliders = GetComponents<Collider>();
-//        foreach (Collider col in colliders)
-//        {
-//            if (col.isTrigger)
-//            {
-//                col.enabled = false;
-//                break;
-//            }
-//        }
- }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player") && !hasBeenPurchased)
-        {
-            playerNearby = true;
-            player = other.gameObject;
-            if (promptText != null) promptText.SetActive(true);
-            Debug.Log("Press E to buy " + perkType + " (" + perkCost + " points)");
-            playerPoints = player.GetComponent<PlayerPoints>();
+            BuyPerk();
         }
     }
 
-    void OnTriggerExit(Collider other)
+    private void BuyPerk()
+    {
+        if (playerPerks == null) return;
+
+        if (playerPerks.HasPerk(perkType))
+        {
+            Debug.Log($"{perkName} already owned!");
+            return;
+        }
+
+        if (playerPoints != null && playerPoints.SpendPoints(perkCost))
+        {
+            if (playerPerks.TryAddPerk(perkType))
+            {
+                Debug.Log($"Bought {perkName}!");
+                if (buySound != null) buySound.Play();
+            }
+            else
+            {
+                // Refund if failed to add (e.g. limit reached)
+                playerPoints.AddPoints(perkCost);
+                Debug.Log($"Failed to add {perkName}. Points refunded.");
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = true;
+            player = other.gameObject;
+            playerPoints = player.GetComponent<PlayerPoints>();
+            playerPerks = player.GetComponent<PlayerPerks>();
+            playerInput = player.GetComponent<PlayerInputHandler>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
-            if (promptText != null) promptText.SetActive(false);
+            player = null;
+            playerPoints = null;
+            playerPerks = null;
+            playerInput = null;
         }
     }
-
 }
 

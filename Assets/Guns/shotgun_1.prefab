@@ -136,14 +136,14 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   damage: 25
   headshotMultiplier: 2
-  range: 100
-  fireRate: 0.1
-  magazineSize: 30
-  reserveAmmo: 210
-  reloadTime: 2.5
+  range: 12
+  fireRate: 0.882
+  magazineSize: 7
+  reserveAmmo: 39
+  reloadTime: 2.8
   isBurstWeapon: 0
   burstCount: 3
-  isShotgun: 0
+  isShotgun: 1
   pelletCount: 8
   spreadAngle: 5
   recoilX: 1.5

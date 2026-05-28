@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -90,7 +90,7 @@ namespace Assets.UI.Scripts
 
         IEnumerator SaveAfterDelay(int value)
         {
-            yield return new WaitForSeconds(saveDelay);
+            yield return new WaitForSecondsRealtime(saveDelay);
 
             PlayerPrefs.SetInt(playerPrefsKey, value);
             PlayerPrefs.Save();

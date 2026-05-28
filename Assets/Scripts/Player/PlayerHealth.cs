@@ -60,5 +60,9 @@ public class PlayerHealth : MonoBehaviour
     {
         perks?.ClearPerks();
         Died?.Invoke();
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnPlayerDied();
+        }
     }
 }

@@ -73,6 +73,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 170323e03ce19d14581532852e3605a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1958828239070525565}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 170323e03ce19d14581532852e3605a8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1544747659167036445}
     - targetCorrespondingSourceObject: {fileID: -1781356600409242780, guid: 170323e03ce19d14581532852e3605a8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2252285602144334407}
@@ -127,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc46dee30906b174eb5e41104e492a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 2500
   animator: {fileID: 371218363511993861}
 --- !u!195 &981439899401993508
 NavMeshAgent:
@@ -139,7 +142,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 4.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -164,5 +167,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 1.5
-  attackDamage: 10
+  attackDamage: 30
   attackCooldown: 1.5
+--- !u!114 &1544747659167036445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380801716211054277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e6986ce19857a4fa3ea1dae1acefb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moanClip: {fileID: 8300000, guid: ed03161a2d0dd914195819395ec440b6, type: 3}
+  minInterval: 3
+  maxInterval: 8

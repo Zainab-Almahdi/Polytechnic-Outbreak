@@ -1,10 +1,11 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    [Header("Drag your Zombie prefab here")]
-    public GameObject zombiePrefab;
+    [Header("Pool of Zombie prefabs")]
+    public List<GameObject> zombiePool;
 
     [Header("How often a zombie spawns (seconds)")]
     public float spawnInterval = 3f;
@@ -12,10 +13,10 @@ public class ZombieSpawner : MonoBehaviour
     [Header("Max zombies alive from this spawner")]
     public int maxZombies = 3;
 
-    private static int _aliveCount = 0;
-    private Coroutine _spawnRoutine;
+    protected int _aliveCount = 0;
+    protected Coroutine _spawnRoutine;
 
-    public void Activate()
+    public virtual void Activate()
     {
         if (_spawnRoutine != null)
             StopCoroutine(_spawnRoutine);
@@ -23,7 +24,7 @@ public class ZombieSpawner : MonoBehaviour
         _spawnRoutine = StartCoroutine(SpawnLoop());
     }
 
-    public void Deactivate()
+    public virtual void Deactivate()
     {
         if (_spawnRoutine != null)
         {
@@ -35,12 +36,11 @@ public class ZombieSpawner : MonoBehaviour
     }
 
     // Called by GameSpawnController to adjust difficulty
-    public void SetDifficulty(float newInterval, int newMaxZombies)
+    public virtual void SetDifficulty(float newInterval, int newMaxZombies, List<GameObject> newPool)
     {
         spawnInterval = newInterval;
         maxZombies = newMaxZombies;
-
-        Debug.Log($"{gameObject.name} difficulty set — interval: {newInterval}s, max: {newMaxZombies}");
+        zombiePool = newPool;
 
         // Restart coroutine to apply new interval immediately
         if (_spawnRoutine != null)
@@ -50,7 +50,7 @@ public class ZombieSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnLoop()
+    protected virtual IEnumerator SpawnLoop()
     {
         while (true)
         {
@@ -61,13 +61,15 @@ public class ZombieSpawner : MonoBehaviour
         }
     }
 
-    void SpawnZombie()
+    protected virtual void SpawnZombie()
     {
-        if (zombiePrefab == null)
+        if (zombiePool == null || zombiePool.Count == 0)
         {
-            Debug.LogError($"{gameObject.name} has no Zombie Prefab assigned!");
+            Debug.LogError($"{gameObject.name} has no Zombie Prefabs in pool!");
             return;
         }
+
+        GameObject prefab = zombiePool[Random.Range(0, zombiePool.Count)];
 
         Vector3 randomOffset = new Vector3(
             Random.Range(-1f, 1f),
@@ -76,7 +78,7 @@ public class ZombieSpawner : MonoBehaviour
         );
 
         Vector3 spawnPosition = transform.position + randomOffset;
-        GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+        GameObject zombie = Instantiate(prefab, spawnPosition, Quaternion.identity);
         _aliveCount++;
 
         // Hook into teammate's ZombieHealth
@@ -94,7 +96,7 @@ public class ZombieSpawner : MonoBehaviour
         Debug.Log($"{gameObject.name} spawned a zombie. Alive: {_aliveCount}");
     }
 
-    IEnumerator WaitForDeath(GameObject zombie)
+    protected IEnumerator WaitForDeath(GameObject zombie)
     {
         // Keep checking until the zombie is destroyed
         while (zombie != null)
@@ -102,7 +104,7 @@ public class ZombieSpawner : MonoBehaviour
             yield return null;
         }
 
-        // Zombie was destroyed — reduce count
+        // Zombie was destroyed reduce count
         _aliveCount--;
         Debug.Log($"{gameObject.name} zombie died. Alive: {_aliveCount}");
     }

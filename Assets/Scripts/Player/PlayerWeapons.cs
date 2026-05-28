@@ -89,11 +89,23 @@ public class PlayerWeapons : MonoBehaviour
         var removed = ownedWeapons.Remove(weapon);
         if (removed)
         {
-            equippedWeaponIndex = Mathf.Clamp(equippedWeaponIndex, 0, ownedWeapons.Count - 1);
+            if (weapon.SpawnedObject != null)
+            {
+                Destroy(weapon.SpawnedObject);
+            }
+            equippedWeaponIndex = Mathf.Clamp(equippedWeaponIndex, 0, Mathf.Max(0, ownedWeapons.Count - 1));
             NotifyAmmoChanged();
         }
 
         return removed;
+    }
+
+    public void PruneWeapons()
+    {
+        while (ownedWeapons.Count > MaxWeaponsOwned)
+        {
+            RemoveWeapon(ownedWeapons[ownedWeapons.Count - 1]);
+        }
     }
 
     public WeaponInstance GetEquippedWeapon()
@@ -146,6 +158,20 @@ public class PlayerWeapons : MonoBehaviour
     public float GetFireRateMultiplier()
     {
         return perks != null ? perks.FireRateMultiplier : 1f;
+    }
+
+    public bool RefillAllWeaponsAmmo()
+    {
+        if (ownedWeapons.Count == 0) return false;
+        
+        foreach (var weapon in ownedWeapons)
+        {
+            weapon.CurrentMagazineAmmo = weapon.MagazineSize;
+            weapon.CurrentReserveAmmo = weapon.ReserveAmmo;
+        }
+        
+        NotifyAmmoChanged();
+        return true;
     }
 
     public bool RefillEquippedWeaponAmmo()

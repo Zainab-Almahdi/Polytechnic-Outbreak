@@ -18,10 +18,11 @@ public class PlayerPowerups : MonoBehaviour
             return;
         }
 
-        switch (powerupName.Trim())
+        string name = powerupName.Trim();
+        switch (name)
         {
             case "MaxAmmoPowerup":
-                weapons?.RefillEquippedWeaponAmmo();
+                weapons?.RefillAllWeaponsAmmo();
                 break;
             case "NukePowerup":
                 HandleNuke();
@@ -35,6 +36,12 @@ public class PlayerPowerups : MonoBehaviour
 
     private void HandleNuke()
     {
-        points?.AddPoints(600);
+        points?.AddPoints(400);
+        
+        ZombieHealth[] zombies = Object.FindObjectsByType<ZombieHealth>(FindObjectsSortMode.None);
+        foreach (var zombie in zombies)
+        {
+            zombie.TakeDamage(9999);
+        }
     }
 }

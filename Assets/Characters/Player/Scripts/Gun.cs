@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Gun : MonoBehaviour
 {
+    public string displayName;
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shootSound;
@@ -11,6 +12,7 @@ public class Gun : MonoBehaviour
 
     private PlayerInputHandler inputHandler;
     private PlayerWeapons playerWeapons;
+    private PlayerPoints playerPoints;
     private WeaponInstance weaponInstance;
 
     [SerializeField] private Transform muzzlePoint;
@@ -27,12 +29,18 @@ public class Gun : MonoBehaviour
     public int magazineSize = 30;
     public int reserveAmmo = 210;
     public float reloadTime = 2.5f;
+    public bool reloadPerShell = false;
 
     private bool isReloading;
     private bool canShoot = true;
 
+    public float CurrentFireRate => playerWeapons != null ? fireRate * playerWeapons.GetFireRateMultiplier() : fireRate;
+    public float CurrentReloadTime => playerWeapons != null ? reloadTime * playerWeapons.GetReloadSpeedMultiplier() : reloadTime;
+    public float CurrentBurstFireRate => playerWeapons != null ? burstFireRate * playerWeapons.GetFireRateMultiplier() : burstFireRate;
+
     public bool isBurstWeapon = false;
     public int burstCount = 3;
+    public float burstFireRate = 0.08f;
 
     public bool isShotgun = false;
     public int pelletCount = 8;
@@ -54,12 +62,18 @@ public class Gun : MonoBehaviour
         weaponInstance = instance;
         playerWeapons = manager;
 
+        if (playerWeapons != null)
+        {
+            playerPoints = playerWeapons.GetComponent<PlayerPoints>();
+        }
+
         if (weaponInstance != null)
         {
             damage = weaponInstance.Damage;
             headshotMultiplier = weaponInstance.HeadshotMultiplier;
             range = weaponInstance.Range;
             reloadTime = weaponInstance.ReloadSpeedSeconds;
+            reloadPerShell = weaponInstance.ReloadPerShell;
             magazineSize = weaponInstance.MagazineSize;
             reserveAmmo = weaponInstance.ReserveAmmo;
             isBurstWeapon = weaponInstance.IsBurstWeapon;
@@ -70,6 +84,9 @@ public class Gun : MonoBehaviour
 
             if (weaponInstance.FireRateRpm > 0)
                 fireRate = 60f / weaponInstance.FireRateRpm;
+            
+            if (weaponInstance.BurstFireRateRpm > 0)
+                burstFireRate = 60f / weaponInstance.BurstFireRateRpm;
         }
     }
 
@@ -121,19 +138,24 @@ public class Gun : MonoBehaviour
         {
             for (int i = 0; i < burstCount; i++)
             {
+                if (weaponInstance.CurrentMagazineAmmo <= 0) break;
+
                 FireShot();
-                yield return new WaitForSeconds(0.08f);
+                weaponInstance.CurrentMagazineAmmo--;
+                NotifyAmmoChanged();
+
+                if (i < burstCount - 1)
+                    yield return new WaitForSeconds(CurrentBurstFireRate);
             }
         }
         else
         {
             FireShot();
+            weaponInstance.CurrentMagazineAmmo--;
+            NotifyAmmoChanged();
         }
 
-        weaponInstance.CurrentMagazineAmmo--;
-        NotifyAmmoChanged();
-
-        yield return new WaitForSeconds(fireRate);
+        yield return new WaitForSeconds(CurrentFireRate);
         canShoot = true;
     }
 
@@ -211,17 +233,32 @@ public class Gun : MonoBehaviour
             yield break;
 
         isReloading = true;
-        audioSource.PlayOneShot(reloadSound);
 
-        yield return new WaitForSeconds(reloadTime);
+        if (reloadPerShell)
+        {
+            while (weaponInstance.CurrentMagazineAmmo < magazineSize && weaponInstance.CurrentReserveAmmo > 0)
+            {
+                audioSource.PlayOneShot(reloadSound);
+                yield return new WaitForSeconds(CurrentReloadTime);
+                weaponInstance.CurrentMagazineAmmo++;
+                weaponInstance.CurrentReserveAmmo--;
+                NotifyAmmoChanged();
+            }
+        }
+        else
+        {
+            audioSource.PlayOneShot(reloadSound);
+            yield return new WaitForSeconds(CurrentReloadTime);
 
-        int ammoNeeded = magazineSize - weaponInstance.CurrentMagazineAmmo;
-        int ammoToLoad = Mathf.Min(ammoNeeded, weaponInstance.CurrentReserveAmmo);
+            int ammoNeeded = magazineSize - weaponInstance.CurrentMagazineAmmo;
+            int ammoToLoad = Mathf.Min(ammoNeeded, weaponInstance.CurrentReserveAmmo);
 
-        weaponInstance.CurrentMagazineAmmo += ammoToLoad;
-        weaponInstance.CurrentReserveAmmo -= ammoToLoad;
+            weaponInstance.CurrentMagazineAmmo += ammoToLoad;
+            weaponInstance.CurrentReserveAmmo -= ammoToLoad;
 
-        NotifyAmmoChanged();
+            NotifyAmmoChanged();
+        }
+
         isReloading = false;
     }
 
@@ -249,6 +286,11 @@ public class Gun : MonoBehaviour
                     finalDamage *= headshotMultiplier;
 
                 zombie.TakeDamage(finalDamage);
+
+                if (playerPoints != null)
+                {
+                    playerPoints.AddPoints(10);
+                }
             }
 
             if (impactEffect != null)

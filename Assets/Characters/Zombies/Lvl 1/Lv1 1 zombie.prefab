@@ -70,6 +70,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4871230517689953417}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3940809523058822598}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6163487655445067718}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5893368731097494263}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4513253168869556715}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6137474630630676291}
     - targetCorrespondingSourceObject: {fileID: -1781356600409242780, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2587593604271820713}
@@ -110,6 +125,108 @@ MonoBehaviour:
   - {fileID: 8448807417504908889, guid: 049fb2b4629536546991449d1475822e, type: 3}
   - {fileID: 867856639922833414, guid: 3298f3f42609ff949b25bea9c7a0acac, type: 3}
   dropChance: 0.05
+--- !u!54 &-3940809523058822598
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363248959723710532}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &-6163487655445067718
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363248959723710532}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!195 &5893368731097494263
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363248959723710532}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1.2
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &-4513253168869556715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363248959723710532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca289a7eadbc4e40b706c02660e20f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1.5
+  attackDamage: 25
+  attackCooldown: 1.5
+--- !u!114 &6137474630630676291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363248959723710532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e6986ce19857a4fa3ea1dae1acefb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moanClip: {fileID: 8300000, guid: ed03161a2d0dd914195819395ec440b6, type: 3}
+  minInterval: 3
+  maxInterval: 8
 --- !u!1 &6272229512137594481 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1781356600409242780, guid: ddd002e9e185fe54dba38d6991c6b70d, type: 3}

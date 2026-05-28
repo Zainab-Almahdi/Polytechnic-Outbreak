@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Assets.UI.Scripts;
 
 public class GameSpawnController : MonoBehaviour
 {
-    [Header("All floors — drag in order (floor1 first)")]
+    [Header("All floors - drag in order (floor1 first)")]
     public List<FloorSpawnManager> floors;
 
-    [Header("Difficulty settings per floor — one entry per floor")]
+    [Header("Difficulty settings per floor - one entry per floor")]
     public List<FloorDifficultySettings> floorDifficulties;
 
     private FloorSpawnManager _currentFloor;
@@ -14,84 +15,56 @@ public class GameSpawnController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"GameSpawnController started. Floors: {floors.Count} | Difficulties: {floorDifficulties.Count}");
-
         if (floorDifficulties.Count != floors.Count)
         {
             Debug.LogError("Floor count and difficulty count don't match!");
             return;
         }
-
-        // Print all floor settings on start
-        for (int i = 0; i < floors.Count; i++)
-        {
-            if (floors[i] == null)
-            {
-                Debug.LogError($"Floor {i + 1} is NULL — did you forget to drag it in?");
-                continue;
-            }
-
-            Debug.Log($"Floor {i + 1} registered — " +
-                      $"Interval: {floorDifficulties[i].spawnInterval}s | " +
-                      $"Max Zombies: {floorDifficulties[i].maxZombies}");
-        }
     }
 
     public void OnPlayerChangedFloor(int floorIndex)
     {
-        Debug.Log($"OnPlayerChangedFloor called — floorIndex: {floorIndex}");
+        if (_currentFloorIndex == floorIndex) return;
 
-        if (_currentFloorIndex == floorIndex)
+        // Update HUD
+        if (HUDManager.Instance != null)
         {
-            Debug.Log($"Player is already on Floor {floorIndex + 1}, ignoring.");
-            return;
+            HUDManager.Instance.SetFloorLabel((floorIndex + 1).ToString());
         }
 
-        // Deactivate previous floor
-        if (_currentFloor != null)
-        {
-            Debug.Log($"Deactivating Floor {_currentFloorIndex + 1}");
-            _currentFloor.DeactivateFloor();
-        }
+        if (_currentFloor != null) _currentFloor.DeactivateFloor();
 
         _currentFloorIndex = floorIndex;
         _currentFloor = floors[floorIndex];
 
-        if (_currentFloor == null)
-        {
-            Debug.LogError($"Floor {floorIndex + 1} is NULL in the list!");
-            return;
-        }
+        if (GameManager.Instance != null)
+            GameManager.Instance.UpdateMaxFloor(floorIndex);
 
-        // Apply settings
+        if (_currentFloor == null) return;
+
         FloorDifficultySettings settings = floorDifficulties[floorIndex];
+        if (settings == null) return;
 
-        if (settings == null)
+        List<GameObject> pool = new List<GameObject>();
+        if (settings.zombiePrefabs != null) pool.AddRange(settings.zombiePrefabs);
+
+        // If after floor 2 (index 1), mix in previous levels, but skip for Floor 6 (index 5)
+        if (floorIndex >= 2 && floorIndex < 5)
         {
-            Debug.LogError($"Difficulty settings for Floor {floorIndex + 1} are NULL!");
-            return;
+            for (int i = 0; i < floorIndex; i++)
+            {
+                if (floorDifficulties[i].zombiePrefabs != null)
+                    pool.AddRange(floorDifficulties[i].zombiePrefabs);
+            }
         }
-
-        Debug.Log($"Applying difficulty to Floor {floorIndex + 1} — " +
-                  $"Interval: {settings.spawnInterval}s | Max Zombies: {settings.maxZombies}");
 
         List<ZombieSpawner> spawners = _currentFloor.GetSpawners();
-        Debug.Log($"Floor {floorIndex + 1} has {spawners.Count} spawners");
-
         foreach (ZombieSpawner spawner in spawners)
         {
-            if (spawner == null)
-            {
-                Debug.LogError("A spawner in the list is NULL!");
-                continue;
-            }
-
-            spawner.SetDifficulty(settings.spawnInterval, settings.maxZombies);
-            Debug.Log($"SetDifficulty called on {spawner.gameObject.name}");
+            if (spawner != null)
+                spawner.SetDifficulty(settings.spawnInterval, settings.maxZombies, pool);
         }
 
-        // Activate floor
-        Debug.Log($"Activating Floor {floorIndex + 1}");
         _currentFloor.ActivateFloor();
     }
 }

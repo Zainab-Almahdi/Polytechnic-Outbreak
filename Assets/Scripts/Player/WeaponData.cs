@@ -11,6 +11,7 @@ public class WeaponData : ScriptableObject
     public float HeadshotMultiplier = 2f;
     public float Range = 100f;
     public float ReloadSpeedSeconds;
+    public bool ReloadPerShell;
     public int MagazineSize;
     public int ReserveAmmo;
     public bool IsBurstWeapon;

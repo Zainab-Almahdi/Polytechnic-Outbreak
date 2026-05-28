@@ -19,8 +19,9 @@ public class ZombieDropper : MonoBehaviour
             int index = Random.Range(0, powerupPrefabs.Length);
             GameObject prefab = powerupPrefabs[index];
 
-            // Spawn it at zombie position
-            Instantiate(prefab, transform.position, Quaternion.identity);
+            // Spawn it at zombie position with a slight height offset (floating)
+            Vector3 spawnPos = transform.position + Vector3.up * 1.0f;
+            Instantiate(prefab, spawnPos, Quaternion.identity);
 
             Debug.Log("Powerup dropped: " + prefab.name);
         }

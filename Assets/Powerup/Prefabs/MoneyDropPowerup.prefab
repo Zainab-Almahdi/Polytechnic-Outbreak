@@ -133,9 +133,9 @@ GameObject:
   - component: {fileID: 8862534134161615070}
   - component: {fileID: 2565067792413492927}
   - component: {fileID: 1562782200338966673}
-  - component: {fileID: 8998619126423472822}
   - component: {fileID: 2798314205848484570}
   - component: {fileID: 7614248517739257852}
+  - component: {fileID: 7944094899091876291}
   m_Layer: 0
   m_Name: MoneyDropPowerup
   m_TagString: Untagged
@@ -227,32 +227,11 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &8998619126423472822
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8448807417504908889}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.49999997
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2798314205848484570
 MonoBehaviour:
@@ -266,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a13095314e173fa45a80e32f3798b1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupName: MoneyDropup
+  powerupName: MoneyDropPowerup
   pickupSound: {fileID: 7614248517739257852}
   destroyDelay: 0.5
 --- !u!82 &7614248517739257852
@@ -366,3 +345,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &7944094899091876291
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448807417504908889}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0

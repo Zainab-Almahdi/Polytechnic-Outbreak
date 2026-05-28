@@ -86,10 +86,34 @@ public class ZombieAI : MonoBehaviour
     public void OnDeath()
     {
         isDead = true;
+        
+        ZombieAudio zombieAudio = GetComponent<ZombieAudio>();
+        if (zombieAudio != null)
+        {
+            zombieAudio.OnDeath();
+        }
+
+        // Disable root motion so the animation doesn't move the transform
+if (animator != null)
+        {
+            animator.applyRootMotion = false;
+        }
+
         if (agent != null && agent.enabled)
         {
             agent.isStopped = true;
             agent.enabled = false;
+        }
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            
+            // Reset velocity to prevent any physics pops or root motion leftovers
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
 }

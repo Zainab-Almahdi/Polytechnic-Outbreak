@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a7a3b6ec8384947ba820a138ea4e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Magnum (.357)
   audioSource: {fileID: 6412602346838318744}
   shootSound: {fileID: 8300000, guid: b94df1739891d0d4fbde8ed865940f15, type: 3}
   reloadSound: {fileID: 8300000, guid: 31db29e2eac1dbf4f838a1d8d7f21183, type: 3}
@@ -134,15 +135,17 @@ MonoBehaviour:
   muzzlePoint: {fileID: 2404433547487147348}
   playerCamera: {fileID: 0}
   impactEffect: {fileID: 0}
-  damage: 25
+  damage: 48
   headshotMultiplier: 2
   range: 100
   fireRate: 0.4
   magazineSize: 6
-  reserveAmmo: 48
-  reloadTime: 2
+  reserveAmmo: 36
+  reloadTime: 4
+  reloadPerShell: 0
   isBurstWeapon: 0
   burstCount: 3
+  burstFireRate: 0.08
   isShotgun: 0
   pelletCount: 8
   spreadAngle: 5

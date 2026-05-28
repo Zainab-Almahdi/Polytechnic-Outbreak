@@ -29,8 +29,14 @@ public class ZombieHealth : MonoBehaviour
     {
         animator.SetTrigger("IsDead");
 
-        if (zombieDropper != null)
+        PlayerPoints points = Object.FindFirstObjectByType<PlayerPoints>();
+        if (points != null)
         {
+            points.AddPoints(80);
+        }
+
+        if (zombieDropper != null)
+{
             zombieDropper.OnZombieDeath();
         }
 

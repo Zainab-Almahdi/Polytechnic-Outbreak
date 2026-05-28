@@ -73,6 +73,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dfbc1cf48e71e048ad3099f2875cf49, type: 3}
       insertIndex: -1
       addedObject: {fileID: 276171349055974983}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dfbc1cf48e71e048ad3099f2875cf49, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2324603221783328389}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dfbc1cf48e71e048ad3099f2875cf49, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3676696132465812817}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9dfbc1cf48e71e048ad3099f2875cf49, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3933898760231756165}
     - targetCorrespondingSourceObject: {fileID: -1781356600409242780, guid: 9dfbc1cf48e71e048ad3099f2875cf49, type: 3}
       insertIndex: -1
       addedObject: {fileID: 282733991328864792}
@@ -94,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc46dee30906b174eb5e41104e492a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 110
   animator: {fileID: 5880536361617027896}
 --- !u!195 &1728136594463712974
 NavMeshAgent:
@@ -106,7 +115,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 3.8500001
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -131,8 +140,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 1.5
-  attackDamage: 10
+  attackDamage: 25
   attackCooldown: 1.5
+--- !u!54 &2324603221783328389
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878238013740479480}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &-3676696132465812817
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878238013740479480}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &3933898760231756165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878238013740479480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e6986ce19857a4fa3ea1dae1acefb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moanClip: {fileID: 8300000, guid: ed03161a2d0dd914195819395ec440b6, type: 3}
+  minInterval: 3
+  maxInterval: 8
 --- !u!95 &5880536361617027896 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 9dfbc1cf48e71e048ad3099f2875cf49, type: 3}

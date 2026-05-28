@@ -25,25 +25,31 @@ public class ZombieHealth : MonoBehaviour
         }
     }
 
+    private bool isDead = false;
+
     void IsDead()
     {
+        if (isDead) return;
+        isDead = true;
+
         animator.SetTrigger("IsDead");
 
         if (zombieDropper != null)
-        {
             zombieDropper.OnZombieDeath();
-        }
 
         if (GameManager.Instance != null)
-        {
             GameManager.Instance.OnZombieKilled();
-        }
 
         var ai = GetComponent<ZombieAI>();
         if (ai != null)
-        {
             ai.OnDeath();
-        }
+
         Destroy(gameObject, 3f);
+    }
+
+    public void KillInstantly()
+    {
+        currentHealth = 0f;
+        IsDead();
     }
 }

@@ -9,8 +9,6 @@ public class PlayerCameraLook : MonoBehaviour
     [SerializeField] private float maxPitch = 80f;
     [SerializeField] private bool lockCursor = true;
 
-    public Vector2 recoilOffset;
-
     private float xRotation;
 
     private PlayerInputHandler inputHandler;
@@ -72,11 +70,7 @@ public class PlayerCameraLook : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -maxPitch, maxPitch);
         if (playerCamera != null)
         {
-            playerCamera.transform.localRotation = Quaternion.Euler(
-            xRotation + recoilOffset.y,
-            recoilOffset.x,
-            0f
- );
+            playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         }
         else
         {
